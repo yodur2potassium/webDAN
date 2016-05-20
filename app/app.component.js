@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>Youpi, ça marche</h1>'
+            templateUrl: 'app/wip.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

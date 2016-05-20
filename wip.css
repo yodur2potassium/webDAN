@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 mai 2016, 11:31:06
+    Author     : xnef424
+*/
+#header {
+    background-color: lightblue;
+}
+
+#conteneurMenu {
+    background-color: lightcyan;
+}
+
+#conteneurPrincipal{
+    background-color: lightgrey;
+}
+
+#conteneurPrincipalMain {
+    background-color: lightskyblue;
+}
+
+#colonneDroite {
+    background-color: lightyellow;
+}
+
+#principal {
+    background-color: lightgreen;
+}
