@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var article_component_1 = require('./article/article.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var ArticleComponent = (function () {
+    function ArticleComponent() {
     }
-    AppComponent = __decorate([
+    ArticleComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/wip.html',
-            directives: [article_component_1.ArticleComponent]
+            selector: 'my-article',
+            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2>Titre de l'article <small>Sous-titre</small></h2>\n                    </div>\n                    <div>\n                    Contenu de l'article\n                    </div>\n                </section>\n"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ArticleComponent);
+    return ArticleComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ArticleComponent = ArticleComponent;
+//# sourceMappingURL=article.component.js.map
