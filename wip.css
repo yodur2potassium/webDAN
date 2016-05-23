@@ -7,13 +7,17 @@ and open the template in the editor.
     Created on : 20 mai 2016, 11:31:06
     Author     : xnef424
 */
-#header {
-    background-color: lightblue;
+header{
+	background: url("../images/tetiere.png") no-repeat center 35px;
+	background-color: #fff;
+	position: relative;
 }
 
-#conteneurMenu {
-    background-color: lightcyan;
+#bandeau-superieur{
+    background-color: lightcoral;
+    min-height: 35px; 
 }
+
 
 #conteneurPrincipal{
     background-color: lightgrey;
@@ -29,4 +33,32 @@ and open the template in the editor.
 
 #principal {
     background-color: lightgreen;
+}
+
+#conteneurLogo{
+    height: 235px;
+
+}
+
+#conteneurMenu {
+    background-color: lightcyan;
+}
+
+.conteneur{
+	max-width: 880px;
+	margin: 0 auto;
+}
+
+#conteneurLogoTexte{
+	position: relative;
+	top: 71px;
+	left: 66px;
+	max-width: 300px;
+}
+
+#logo{
+	border-right: 30px solid transparent;
+	height: 62px;
+	margin-top: 81px;
+
 }
