@@ -1,5 +1,6 @@
 {
     "elements": {
+        "my-article": {},
         "my-app": {}
     },
     "attributes": {}

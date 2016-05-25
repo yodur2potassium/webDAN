@@ -9,15 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var article_service_1 = require('./article.service');
 var ArticleComponent = (function () {
-    function ArticleComponent() {
+    function ArticleComponent(articleService) {
+        this.articleService = articleService;
     }
+    ArticleComponent.prototype.getArticle = function () {
+        var _this = this;
+        this.articleService.getArticle().then(function (article) { return _this.article = article; })
+            .catch(function (error) { return _this.error = error; });
+        console.log(this.article);
+    };
+    ArticleComponent.prototype.ngOnInit = function () {
+        this.getArticle();
+    };
     ArticleComponent = __decorate([
         core_1.Component({
             selector: 'my-article',
-            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2>Titre de l'article <small>Sous-titre</small></h2>\n                    </div>\n                    <div>\n                    Contenu de l'article\n                    </div>\n                </section>\n"
+            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2> {{ title }} <small>{{ subtitle }} </small></h2>\n                    </div>\n                    <div>{{ content }}</div>\n                </section>\n    ",
+            providers: [article_service_1.ArticleService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [article_service_1.ArticleService])
     ], ArticleComponent);
     return ArticleComponent;
 }());

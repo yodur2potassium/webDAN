@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var article_component_1 = require('./article/article.component');
+var article_service_1 = require('./article/article.service');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -17,7 +18,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/wip.html',
-            directives: [article_component_1.ArticleComponent]
+            directives: [article_component_1.ArticleComponent],
+            providers: [article_service_1.ArticleService],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
