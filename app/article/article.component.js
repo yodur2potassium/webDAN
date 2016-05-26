@@ -18,7 +18,6 @@ var ArticleComponent = (function () {
         var _this = this;
         this.articleService.getArticle().then(function (article) { return _this.article = article; })
             .catch(function (error) { return _this.error = error; });
-        console.log(this.article);
     };
     ArticleComponent.prototype.ngOnInit = function () {
         this.getArticle();
@@ -26,7 +25,7 @@ var ArticleComponent = (function () {
     ArticleComponent = __decorate([
         core_1.Component({
             selector: 'my-article',
-            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2> {{ title }} <small>{{ subtitle }} </small></h2>\n                    </div>\n                    <div>{{ content }}</div>\n                </section>\n    ",
+            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>\n                    </div>\n                    <div>{{ article.content }}</div>\n                </section>\n    ",
             providers: [article_service_1.ArticleService]
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])

@@ -3,5 +3,9 @@ export class Article {
     title: string;
     subtitle: string;
     content: string;
-    
+    author: string;
+    created: any;
+    images: Array<any>;
+    videos: Array<any>;
+    errors: Array<any>;
 }

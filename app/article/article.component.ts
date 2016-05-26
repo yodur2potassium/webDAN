@@ -10,9 +10,9 @@ import { ArticleService } from './article.service';
     template: `
                 <section>
                     <div class="page-header">
-                        <h2> {{ title }} <small>{{ subtitle }} </small></h2>
+                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>
                     </div>
-                    <div>{{ content }}</div>
+                    <div>{{ article.content }}</div>
                 </section>
     `,
     providers: [ArticleService]
@@ -27,7 +27,6 @@ export class ArticleComponent implements OnInit {
     getArticle() {
         this.articleService.getArticle().then(article => this.article = article)
                                         .catch(error => this.error = error);
-        console.log(this.article);
     }
     
     ngOnInit(){

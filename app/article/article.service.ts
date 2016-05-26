@@ -4,7 +4,6 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Article } from './article';
-import { TEST } from './mock-article';
 
 @Injectable()
 
@@ -15,13 +14,14 @@ export class ArticleService{
     constructor(private http: Http) {}
         
     getArticle(): Promise<Article>{
-        var resp = this.http.get(this.artUrl)
-                        .toPromise().then(response => response.json().data);
-        console.log(resp);
+        
+        this.http.get(this.artUrl).toPromise().then(function(response){
+            console.log(response.json())
+        });
         
         return this.http.get(this.artUrl)
                         .toPromise()
-                        .then(response => response.json().data)
+                        .then(response => response.json())
                         .catch(this.handleError);
     }
     

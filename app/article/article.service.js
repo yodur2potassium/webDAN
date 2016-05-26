@@ -17,12 +17,12 @@ var ArticleService = (function () {
         this.artUrl = "http://localhost:8000/api/test";
     }
     ArticleService.prototype.getArticle = function () {
-        var resp = this.http.get(this.artUrl)
-            .toPromise().then(function (response) { return response.json().data; });
-        console.log(resp);
+        this.http.get(this.artUrl).toPromise().then(function (response) {
+            console.log(response.json());
+        });
         return this.http.get(this.artUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
+            .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     ArticleService.prototype.handleError = function (error) {
