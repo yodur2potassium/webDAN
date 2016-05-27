@@ -8,7 +8,7 @@ import { ArticleService } from './article.service';
 @Component({
     selector:'my-article',
     template: `
-                <section>
+                <section *ngIf="article">
                     <div class="page-header">
                         <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>
                     </div>
@@ -18,18 +18,24 @@ import { ArticleService } from './article.service';
     providers: [ArticleService]
 })
 export class ArticleComponent implements OnInit {
-    
+
     article: Article;
     error: any;
-    
-    constructor(private articleService: ArticleService) {}
-    
+    test: string;
+
+    constructor(private _articleService: ArticleService) {}
+
     getArticle() {
-        this.articleService.getArticle().then(article => this.article = article)
+        this._articleService.getArticle().then(response => this.article = response)
                                         .catch(error => this.error = error);
     }
-    
+
     ngOnInit(){
         this.getArticle();
     }
-} 
+
+    testFunction() {
+      console.log(this);
+      console.log(this.test);
+    }
+}

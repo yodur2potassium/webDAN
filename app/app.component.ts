@@ -8,7 +8,8 @@ import { ArticleService } from './article/article.service';
 @Component({
     selector: 'my-app',
     templateUrl: 'app/wip.html',
+    styleUrls: ['app/wip.css'],
     directives: [ArticleComponent],
     providers: [ArticleService],
 })
-export class AppComponent { } 
+export class AppComponent { }

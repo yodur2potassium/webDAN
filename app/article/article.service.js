@@ -17,9 +17,6 @@ var ArticleService = (function () {
         this.artUrl = "http://localhost:8000/api/test";
     }
     ArticleService.prototype.getArticle = function () {
-        this.http.get(this.artUrl).toPromise().then(function (response) {
-            console.log(response.json());
-        });
         return this.http.get(this.artUrl)
             .toPromise()
             .then(function (response) { return response.json(); })

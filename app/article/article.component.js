@@ -11,21 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var article_service_1 = require('./article.service');
 var ArticleComponent = (function () {
-    function ArticleComponent(articleService) {
-        this.articleService = articleService;
+    function ArticleComponent(_articleService) {
+        this._articleService = _articleService;
     }
     ArticleComponent.prototype.getArticle = function () {
         var _this = this;
-        this.articleService.getArticle().then(function (article) { return _this.article = article; })
+        this._articleService.getArticle().then(function (response) { return _this.article = response; })
             .catch(function (error) { return _this.error = error; });
     };
     ArticleComponent.prototype.ngOnInit = function () {
         this.getArticle();
     };
+    ArticleComponent.prototype.testFunction = function () {
+        console.log(this);
+        console.log(this.test);
+    };
     ArticleComponent = __decorate([
         core_1.Component({
             selector: 'my-article',
-            template: "\n                <section>\n                    <div class=\"page-header\">\n                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>\n                    </div>\n                    <div>{{ article.content }}</div>\n                </section>\n    ",
+            template: "\n                <section *ngIf=\"article\">\n                    <div class=\"page-header\">\n                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>\n                    </div>\n                    <div>{{ article.content }}</div>\n                </section>\n    ",
             providers: [article_service_1.ArticleService]
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])

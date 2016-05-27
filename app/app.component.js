@@ -18,6 +18,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/wip.html',
+            styleUrls: ['app/wip.css'],
             directives: [article_component_1.ArticleComponent],
             providers: [article_service_1.ArticleService],
         }), 
