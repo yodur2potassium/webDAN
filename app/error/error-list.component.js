@@ -10,15 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var error_service_1 = require("./error.service");
 var ErrorListComponent = (function () {
-    function ErrorListComponent() {
+    function ErrorListComponent(_errService) {
+        this._errService = _errService;
     }
+    ErrorListComponent.prototype.getErrors = function () {
+        var _this = this;
+        this._errService.getErrors().then(function (response) { return _this.errors = response; })
+            .catch(function (failed) { return _this.failed = failed; }); // This is a connexion error
+    };
+    ErrorListComponent.prototype.onSelect = function (error) {
+        this.selectedError = error;
+        console.log('plop');
+    };
     ErrorListComponent = __decorate([
         core_1.Component({
             selector: 'my-error-list',
-            template: "<div> Error list </div>",
+            template: "<div (click)=\"getErrors()\">\n                  <h3>Click</h3>\n                  <ul>\n                    <li *ngFor=\"let error of errors\" (click)=\"onSelect(error)\">\n                      <h4>{{error.title}}</h4>\n                      <p>{{error.description}}</p>\n                  </ul>\n              </div>\n              ",
+            providers: [error_service_1.ErrorService],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [error_service_1.ErrorService])
     ], ErrorListComponent);
     return ErrorListComponent;
 }());

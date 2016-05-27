@@ -13,6 +13,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var article_component_1 = require('./article/article.component');
 var article_service_1 = require('./article/article.service');
+var error_list_component_1 = require("./error/error-list.component");
+var error_service_1 = require("./error/error.service");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -21,8 +23,8 @@ var AppComponent = (function () {
             selector: 'my-app',
             templateUrl: 'app/wip.html',
             styleUrls: ['app/wip.css'],
-            directives: [article_component_1.ArticleComponent],
-            providers: [article_service_1.ArticleService],
+            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent],
+            providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
