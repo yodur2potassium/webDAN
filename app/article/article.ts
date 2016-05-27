@@ -1,3 +1,5 @@
+// Classe Article, définit les attributs et types acceptés
+
 export class Article {
     id: number;
     title: string;

@@ -1,3 +1,4 @@
+// Classe Article, définit les attributs et types acceptés
 "use strict";
 var Article = (function () {
     function Article() {

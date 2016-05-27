@@ -1,3 +1,6 @@
+// Component principal, comprends l'intégralité de la page, le CSS etc
+// TODO : Injecter le Router pour la navigation entre les differentes pages
+
 import { Component } from '@angular/core';
 
 import { ArticleComponent } from './article/article.component';

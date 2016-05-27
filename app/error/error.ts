@@ -1,6 +1,9 @@
+// Classe Error, déclare les attributes et types
+
+// Importe Article pour restreindre l'attribut article à ce type
 import { Article } from '../article/article';
 
-
+// TODO: Assigné les types au attributs
 export class Error {
     id: number;
     title: string;
