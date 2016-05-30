@@ -1,4 +1,3 @@
-// ErrorListComponent, WORK IN PROGRESS
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,20 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// ErrorListComponent, WORK IN PROGRESS
+// Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
 var core_1 = require("@angular/core");
 var error_service_1 = require("./error.service");
 var ErrorListComponent = (function () {
     function ErrorListComponent(_errService) {
         this._errService = _errService;
     }
+    // Recupère la liste d'erreurs en BDD, appelé sur un click, TODO sur un lien dans barre outil...
     ErrorListComponent.prototype.getErrors = function () {
         var _this = this;
         this._errService.getErrors().then(function (response) { return _this.errors = response; })
             .catch(function (failed) { return _this.failed = failed; }); // This is a connexion error
     };
+    // Sélectionne une erreur, TODO appelle ErrorDetailComponent
     ErrorListComponent.prototype.onSelect = function (error) {
         this.selectedError = error;
-        console.log('plop');
+        console.log("Cible de l'erreur : " + error.target);
     };
     ErrorListComponent = __decorate([
         core_1.Component({

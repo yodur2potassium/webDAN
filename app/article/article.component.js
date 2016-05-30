@@ -1,4 +1,4 @@
-// ArticleComponent, affiche le détail d'un article, modifications prevues, destiné a intégrer ArticleList
+// ArticleComponent, affiche une liste article, modifications prevues
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12,19 +12,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
 var core_1 = require('@angular/core');
 var article_service_1 = require('./article.service');
+var image_component_1 = require("../image/image.component");
 var ArticleComponent = (function () {
     function ArticleComponent(_articleService) {
         this._articleService = _articleService;
     }
     // Callback, fetch les données via le service et les assigne
-    ArticleComponent.prototype.getArticle = function () {
+    ArticleComponent.prototype.getArticles = function () {
         var _this = this;
-        this._articleService.getArticle().then(function (response) { return _this.article = response; })
+        this._articleService.getArticles().then(function (response) { return _this.articles = response; })
             .catch(function (error) { return _this.error = error; });
     };
     // Lifecycle hook, lance les fonctions a l'init du Component
     ArticleComponent.prototype.ngOnInit = function () {
-        this.getArticle();
+        this.getArticles();
     };
     ArticleComponent.prototype.testFunction = function () {
         console.log(this);
@@ -35,9 +36,10 @@ var ArticleComponent = (function () {
             // Défini la balise custom
             selector: 'my-article',
             // Template HTML effectuant l'affichage
-            template: "\n                <section *ngIf=\"article\">\n                    <div class=\"page-header\">\n                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>\n                    </div>\n                    <div>{{ article.content }}</div>\n                </section>\n    ",
+            template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ",
             // Injecte le service
-            providers: [article_service_1.ArticleService]
+            providers: [article_service_1.ArticleService],
+            directives: [image_component_1.ImageComponent]
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])
     ], ArticleComponent);

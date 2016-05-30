@@ -13,11 +13,11 @@ import { Article } from './article';
 
 export class ArticleService{
     // URL de l'API
-    private artUrl = "http://localhost:8000/api/test";
+    private artUrl = "http://localhost:8000/api/articles";
 
     constructor(private http: Http) {}
     // Retourne une promesse de type Article en json
-    getArticle(): Promise<Article>{
+    getArticles(): Promise<Article[]>{
 
         return this.http.get(this.artUrl)
                         .toPromise()

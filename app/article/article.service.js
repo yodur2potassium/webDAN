@@ -19,10 +19,10 @@ var ArticleService = (function () {
     function ArticleService(http) {
         this.http = http;
         // URL de l'API
-        this.artUrl = "http://localhost:8000/api/test";
+        this.artUrl = "http://localhost:8000/api/articles";
     }
     // Retourne une promesse de type Article en json
-    ArticleService.prototype.getArticle = function () {
+    ArticleService.prototype.getArticles = function () {
         return this.http.get(this.artUrl)
             .toPromise()
             .then(function (response) { return response.json(); })

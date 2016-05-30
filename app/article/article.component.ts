@@ -1,11 +1,12 @@
-// ArticleComponent, affiche le détail d'un article, modifications prevues, destiné a intégrer ArticleList
+// ArticleComponent, affiche une liste article, modifications prevues
 
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
 import { Component, OnInit } from '@angular/core';
 
 import { Article } from './article';
 import { ArticleService } from './article.service';
-
+import { ImageComponent } from "../image/image.component";
+import { Image } from "../image/image";
 
 
 @Component({
@@ -13,31 +14,35 @@ import { ArticleService } from './article.service';
     selector:'my-article',
     // Template HTML effectuant l'affichage
     template: `
-                <section *ngIf="article">
-                    <div class="page-header">
-                        <h2> {{ article.title }} <small>{{ article.subtitle }} </small></h2>
-                    </div>
-                    <div>{{ article.content }}</div>
+                <div *ngFor="let article of articles">
+                <section>
+                    <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}"></div>
+                    <my-image [image]="article.images[0]"></my-image>
+                    <div innerHTML="{{article.content}}"></div>
+                    <my-image [image]="article.images[1]"></my-image>
                 </section>
+                </div>
     `,
     // Injecte le service
-    providers: [ArticleService]
+    providers: [ArticleService],
+    directives: [ImageComponent]
+
 })
 export class ArticleComponent implements OnInit {
     // Attributs du Component avec type
-    article: Article;
+    articles: Article[];
     error: any;
     test: string;
 
     constructor(private _articleService: ArticleService) {}
     // Callback, fetch les données via le service et les assigne
-    getArticle() {
-        this._articleService.getArticle().then(response => this.article = response)
+    getArticles() {
+        this._articleService.getArticles().then(response => this.articles = response)
                                         .catch(error => this.error = error);
     }
     // Lifecycle hook, lance les fonctions a l'init du Component
     ngOnInit(){
-        this.getArticle();
+        this.getArticles();
     }
 
     testFunction() {

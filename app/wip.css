@@ -27,10 +27,14 @@ header{
 
 #colonneDroite {
     background-color: lightyellow;
+		padding-right: 0.5em;
+		padding-left: 0.5em;
 }
 
 #principal {
-    background-color: lightgreen;
+    /*background-color: lightgreen;*/
+		padding-right: 0.5em;
+		padding-left: 0.5em;
 }
 
 #conteneurLogo{
@@ -63,4 +67,8 @@ header{
 	height: 62px;
 	margin-top: 81px;
 
+}
+
+#errorSelected{
+	box-shadow: 1px 1px 12px #555;
 }

@@ -1,6 +1,6 @@
 // Classe Error, déclare les attributes et types
 "use strict";
-// TODO: Assigné les types au attributs
+// TODO: Assigner les types au attributs
 var Error = (function () {
     function Error() {
     }

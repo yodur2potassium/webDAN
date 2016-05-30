@@ -3,7 +3,7 @@
 // Importe Article pour restreindre l'attribut article à ce type
 import { Article } from '../article/article';
 
-// TODO: Assigné les types au attributs
+// TODO: Assigner les types au attributs
 export class Error {
     id: number;
     title: string;
