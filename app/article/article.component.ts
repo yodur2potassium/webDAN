@@ -10,9 +10,10 @@ import { Image } from "../image/image";
 
 
 @Component({
-    // Défini la balise custom
+    // Défini la balise HTML custom
     selector:'my-article',
-    // Template HTML effectuant l'affichage
+
+    // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
     template: `
                 <div *ngFor="let article of articles">
                 <section>
@@ -23,8 +24,7 @@ import { Image } from "../image/image";
                 </section>
                 </div>
     `,
-    // Injecte le service
-    providers: [ArticleService],
+    // Déclare les directives utilisées par le composant
     directives: [ImageComponent]
 
 })

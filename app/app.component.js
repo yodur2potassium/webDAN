@@ -20,10 +20,15 @@ var AppComponent = (function () {
     }
     AppComponent = __decorate([
         core_1.Component({
+            // Definis la balise HTML custom
             selector: 'my-app',
+            // Charge la template HMTL
             templateUrl: 'app/wip.html',
+            // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
+            // Déclare les directives
             directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent],
+            // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 
         __metadata('design:paramtypes', [])

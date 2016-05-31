@@ -2,6 +2,9 @@
 
 // Importe Article pour restreindre l'attribut article à ce type
 import { Article } from '../article/article';
+import { Image } from "../image/image";
+import { Video } from "../video/video";
+import { Documentation } from "../documentation/documentation";
 
 // TODO: Assigner les types au attributs
 export class Error {
@@ -9,11 +12,28 @@ export class Error {
     title: string;
     description: string;
     correction: string;
-    internCode: string;
-    accedeCode: string;
+    intern_code: string;
+    accede_code: string;
     target: string;
-    documentation: Array<any>;
+    documentations: Array<Documentation>;
     article: Article;
-    image: any;
-    video: any;
+    image: Image;
+    video: Video;
+
+    getLinkedTo(){
+      // if (this.article){
+      //   console.log('Article');
+      //   return this.article;
+      // }else if (this.image){
+      //   console.log('Image');
+      //   return this.image;
+      // }else if (this.video){
+      //   console.log('Video');
+      //   return this.video;
+      // }else {
+      //   console.log("Failed, cette Erreur n'est reliée a rien...")
+      //   return null;
+      // }
+      return "plop";
+    }
 }

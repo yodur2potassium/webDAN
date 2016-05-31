@@ -47,7 +47,7 @@ header{
 }
 
 .barreMenu{
-    background-color: lightskyblue
+    background-color: lightskyblue;
 }
 
 .conteneur{
@@ -67,6 +67,10 @@ header{
 	height: 62px;
 	margin-top: 81px;
 
+}
+
+#erreurDetail{
+	background-color: lightskyblue;
 }
 
 #errorSelected{

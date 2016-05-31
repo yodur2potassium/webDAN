@@ -12,6 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // Importe Component pour la déclaration
 var core_1 = require("@angular/core");
 var image_1 = require("./image");
+// Déclare la balise custom et le template
 var ImageComponent = (function () {
     function ImageComponent() {
     }

@@ -33,12 +33,11 @@ var ArticleComponent = (function () {
     };
     ArticleComponent = __decorate([
         core_1.Component({
-            // Défini la balise custom
+            // Défini la balise HTML custom
             selector: 'my-article',
-            // Template HTML effectuant l'affichage
+            // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
             template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ",
-            // Injecte le service
-            providers: [article_service_1.ArticleService],
+            // Déclare les directives utilisées par le composant
             directives: [image_component_1.ImageComponent]
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])

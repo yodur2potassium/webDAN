@@ -4,6 +4,7 @@ import { Component, Input } from "@angular/core";
 
 import { Image } from "./image";
 
+// Déclare la balise custom et le template
 @Component ({
   selector: 'my-image',
   template: `
@@ -15,6 +16,7 @@ import { Image } from "./image";
 })
 
 export class ImageComponent{
+  // Assigne l'input du parent à l'attribut image
   @Input()
   image: Image;
 }

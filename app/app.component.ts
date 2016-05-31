@@ -10,10 +10,15 @@ import { ErrorService } from "./error/error.service";
 
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app/wip.html',
-    styleUrls: ['app/wip.css'],
-    directives: [ArticleComponent, ErrorListComponent],
-    providers: [ArticleService, ErrorService],
+  // Definis la balise HTML custom
+  selector: 'my-app',
+  // Charge la template HMTL
+  templateUrl: 'app/wip.html',
+  // Charge le page de style CSS générale
+  styleUrls: ['app/wip.css'],
+  // Déclare les directives
+  directives: [ArticleComponent, ErrorListComponent],
+  // Déclare les providers de service de recupération de données API
+  providers: [ArticleService, ErrorService],
 })
 export class AppComponent { }
