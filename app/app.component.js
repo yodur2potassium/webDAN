@@ -15,6 +15,7 @@ var article_component_1 = require('./article/article.component');
 var article_service_1 = require('./article/article.service');
 var error_list_component_1 = require("./error/error-list.component");
 var error_service_1 = require("./error/error.service");
+var sidebar_component_1 = require("./sidebar/sidebar.component");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -27,7 +28,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent],
+            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 

@@ -8,26 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// ImageComponent, affiche une image avec sa descritpion et un sous titre si présent
-// Importe Component pour la déclaration
 var core_1 = require("@angular/core");
-var image_1 = require("./image");
-// Déclare la balise custom et le template
-var ImageComponent = (function () {
-    function ImageComponent() {
+var video_1 = require("./video");
+var VideoComponent = (function () {
+    function VideoComponent() {
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', image_1.Image)
-    ], ImageComponent.prototype, "image", void 0);
-    ImageComponent = __decorate([
+        __metadata('design:type', video_1.Video)
+    ], VideoComponent.prototype, "video", void 0);
+    VideoComponent = __decorate([
         core_1.Component({
-            selector: 'my-image',
-            template: "\n    <figure *ngIf=\"image\" role=\"group\">\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}}>\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ",
+            selector: 'my-video',
+            template: "\n    <figure *ngIf=\"video\" role=\"group\">\n      <div class=\"media_embed\" height=\"240px\" width=\"420px\">\n        <iframe allowfullscreen=\"\" frameborder=\"0\" height=\"240px\" scrolling=\"no\" src=\"//videos-dcom.laposte.fr/widget/campagne_octobre_2015\" width=\"420px\"></iframe>\n      </div>\n      <figcaption class=\"text-center\">{{video.caption}}</figcaption>\n      <a *ngIf=\"video.transcription\" href={{video.transcription}}>Lien vers la transcription</a>\n    </figure>\n  ",
         }), 
         __metadata('design:paramtypes', [])
-    ], ImageComponent);
-    return ImageComponent;
+    ], VideoComponent);
+    return VideoComponent;
 }());
-exports.ImageComponent = ImageComponent;
-//# sourceMappingURL=image.component.js.map
+exports.VideoComponent = VideoComponent;
+//# sourceMappingURL=video.component.js.map

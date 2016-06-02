@@ -5,8 +5,12 @@ CSS Work in progress...
     Created on : 20 mai 2016, 11:31:06
     Author     : xnef424
 */
+main{
+	background-color: #EAF6FA;
+}
+
 header{
-	background: url("../images/tetiere.png") no-repeat center 35px;
+	background: url("../public/images/tetiere.png") no-repeat center 35px;
 	background-color: #fff;
 	position: relative;
 }
@@ -18,11 +22,11 @@ header{
 
 
 #conteneurPrincipal{
-    background-color: lightgrey;
+    background-color: #FFFFFF;
 }
 
-#conteneurPrincipalMain {
-    background-color: lightskyblue;
+.conteneurPrincipalMain {
+    background-color: #EAF6FA;
 }
 
 #colonneDroite {
@@ -32,14 +36,13 @@ header{
 }
 
 #principal {
-    /*background-color: lightgreen;*/
 		padding-right: 0.5em;
 		padding-left: 0.5em;
 }
 
 #conteneurLogo{
     height: 235px;
-
+		/*background-color: #D6EDF5;*/
 }
 
 #conteneurMenu {
@@ -75,4 +78,8 @@ header{
 
 #errorSelected{
 	box-shadow: 1px 1px 12px #555;
+}
+
+.img-side{
+	margin-top: 25px;
 }

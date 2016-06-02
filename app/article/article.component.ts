@@ -7,6 +7,8 @@ import { Article } from './article';
 import { ArticleService } from './article.service';
 import { ImageComponent } from "../image/image.component";
 import { Image } from "../image/image";
+import { Video } from "../video/video";
+import { VideoComponent } from "../video/video.component";
 
 
 @Component({
@@ -20,12 +22,13 @@ import { Image } from "../image/image";
                     <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}"></div>
                     <my-image [image]="article.images[0]"></my-image>
                     <div innerHTML="{{article.content}}"></div>
+                    <my-video [video]="article.videos[0]"></my-video>
                     <my-image [image]="article.images[1]"></my-image>
                 </section>
                 </div>
     `,
     // Déclare les directives utilisées par le composant
-    directives: [ImageComponent]
+    directives: [ImageComponent, VideoComponent]
 
 })
 export class ArticleComponent implements OnInit {

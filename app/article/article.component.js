@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var article_service_1 = require('./article.service');
 var image_component_1 = require("../image/image.component");
+var video_component_1 = require("../video/video.component");
 var ArticleComponent = (function () {
     function ArticleComponent(_articleService) {
         this._articleService = _articleService;
@@ -36,9 +37,9 @@ var ArticleComponent = (function () {
             // Défini la balise HTML custom
             selector: 'my-article',
             // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
-            template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ",
+            template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <my-video [video]=\"article.videos[0]\"></my-video>\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ",
             // Déclare les directives utilisées par le composant
-            directives: [image_component_1.ImageComponent]
+            directives: [image_component_1.ImageComponent, video_component_1.VideoComponent]
         }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService])
     ], ArticleComponent);

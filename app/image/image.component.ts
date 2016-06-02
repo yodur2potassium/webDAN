@@ -8,10 +8,10 @@ import { Image } from "./image";
 @Component ({
   selector: 'my-image',
   template: `
-    <section *ngIf="image" role="group">
-    <img src={{image.source}} class="img-responsive center-block" alt={{image.description}}>
-    <figcaption *ngIf="image.caption" class="text-center">{{image.caption}}</figcaption>
-    </section>
+    <figure *ngIf="image" role="group">
+      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}}>
+      <figcaption class="text-center">{{image.caption}}</figcaption>
+    </figure>
   `,
 })
 

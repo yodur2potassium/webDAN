@@ -7,7 +7,7 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleService } from './article/article.service';
 import { ErrorListComponent } from "./error/error-list.component";
 import { ErrorService } from "./error/error.service";
-
+import { SidebarComponent } from "./sidebar/sidebar.component";
 
 @Component({
   // Definis la balise HTML custom
@@ -17,7 +17,7 @@ import { ErrorService } from "./error/error.service";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleComponent, ErrorListComponent],
+  directives: [ArticleComponent, ErrorListComponent, SidebarComponent],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
