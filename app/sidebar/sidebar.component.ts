@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 
 import { Image } from "../image/image";
 import { ImageComponent } from "../image/image.component";
+import { FormComponent } from "../form/form.component";
 
 @Component ({
   selector: 'my-sidebar',
@@ -17,9 +18,10 @@ import { ImageComponent } from "../image/image.component";
             <my-image [image]="image"></my-image>
           </div>
         </div>
+        <!--<my-form></my-form>-->
       </div>
     </div>`,
-  directives: [ImageComponent],
+  directives: [ImageComponent, FormComponent],
 })
 
 export class SidebarComponent {

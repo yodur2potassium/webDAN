@@ -1,6 +1,6 @@
 // ErrorListComponent, WORK IN PROGRESS
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 // Importe classe Error et le service pour recup données sur API
 import { Error } from "./error";
 import { ErrorService } from "./error.service";
@@ -11,8 +11,8 @@ import { ErrorDetailComponent } from "./error-detail.component";
 // Appelle le composant error-detail sur l'erreur selectionnée
 @Component({
     selector: 'my-error-list',
-    template: `<div (click)="getErrors()">
-                  <h3>Click</h3>
+    template: `<div>
+                  <h3>Liste des erreurs</h3>
                   <ul>
                     <li *ngFor="let error of errors" (click)="onSelect(error)">
                       <h4>{{error.accede_code}} - {{error.title}}</h4>
@@ -24,17 +24,11 @@ import { ErrorDetailComponent } from "./error-detail.component";
     directives: [ErrorDetailComponent],
 })
 export class ErrorListComponent {
+  @Input()
   errors: Error[];
   selectedError: Error;
   selErrorTarget: any;
   failed: any;
-
-  constructor(private _errService: ErrorService) {}
-  // Recupère la liste d'erreurs en BDD, appelé sur un click, TODO sur un lien dans barre outil...
-  getErrors(){
-    this._errService.getErrors().then(response => this.errors = response)
-                                .catch(failed => this.failed = failed) // This is a connexion error
-  }
 
   // Sélectionne une erreur
   onSelect(error: Error){

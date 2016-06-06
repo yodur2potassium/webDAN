@@ -4,7 +4,7 @@ Basée sur le kit static fourni -->
 <header class="navbar-static-top bs-docs-nav" id="header">
     <!-- Static navbar -->
     <!-- Destiné a devenir un ToolsComponents -->
-    <!-- <div id="bandeau-superieur">
+    <div id="bandeau-superieur">
         <div class="container">
             <a id="evitement" href="#conteneurPrincipalMain">Zone outils WebDAN</a>
             <div class="navbar-header">
@@ -14,7 +14,7 @@ Basée sur le kit static fourni -->
 
             </nav>
         </div>
-    </div> -->
+    </div>
     <!-- Zone avec bannière et logo -->
     <div id="conteneurLogo">
         <div class="container conteneur">
@@ -49,13 +49,12 @@ Basée sur le kit static fourni -->
         <!-- Conteneur des articles, destiné a devenir ArticleListComponent -->
           <div class="col-sm-8" id="principal">
             <!-- Balise custom, appele ArticleComponent, destiné a intégrer ArticleListComponent -->
-            <my-article></my-article>
+            <my-article [articles]='articles'></my-article>
           </div>
           <!-- Sidebar -->
           <my-sidebar></my-sidebar>
       </div>
-      <!-- <my-error-list></my-error-list> -->
-      <!-- TODO : Error Component... -->
+      <my-error-list [errors]='errors'></my-error-list>
   </section>
 </div>
 <footer>

@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var image_component_1 = require("../image/image.component");
+var form_component_1 = require("../form/form.component");
 var SidebarComponent = (function () {
     function SidebarComponent() {
         this.images = IMAGES;
@@ -17,8 +18,8 @@ var SidebarComponent = (function () {
     SidebarComponent = __decorate([
         core_1.Component({
             selector: 'my-sidebar',
-            template: "\n    <div class=\"col-sm-4\" id=\"colonneDroite\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h2 class=\"panel-title\">En bref :</h2>\n        </div>\n        <div class=\"panel-body\">\n          <div *ngFor=\"let image of images\" class=\"img-side\">\n            <h4>{{image.description}}</h4>\n            <my-image [image]=\"image\"></my-image>\n          </div>\n        </div>\n      </div>\n    </div>",
-            directives: [image_component_1.ImageComponent],
+            template: "\n    <div class=\"col-sm-4\" id=\"colonneDroite\">\n      <div class=\"panel panel-default\">\n        <div class=\"panel-heading\">\n          <h2 class=\"panel-title\">En bref :</h2>\n        </div>\n        <div class=\"panel-body\">\n          <div *ngFor=\"let image of images\" class=\"img-side\">\n            <h4>{{image.description}}</h4>\n            <my-image [image]=\"image\"></my-image>\n          </div>\n        </div>\n        <!--<my-form></my-form>-->\n      </div>\n    </div>",
+            directives: [image_component_1.ImageComponent, form_component_1.FormComponent],
         }), 
         __metadata('design:paramtypes', [])
     ], SidebarComponent);
