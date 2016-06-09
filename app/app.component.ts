@@ -11,6 +11,7 @@ import { ErrorService } from "./error/error.service";
 import { Error } from "./error/error";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { FormComponent } from "./form/form.component";
+import { SearchComponent } from "./search/search.component";
 
 @Component({
   // Definis la balise HTML custom
@@ -20,7 +21,7 @@ import { FormComponent } from "./form/form.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleComponent, ErrorListComponent, SidebarComponent],
+  directives: [ArticleComponent, ErrorListComponent, SidebarComponent, SearchComponent],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
@@ -55,9 +56,9 @@ export class AppComponent implements OnInit {
     let tab = this.articles;
     console.log(this.currPage);
     if (this.currPage === 1){
-      this.currArticles = tab.slice(0,4);
+      this.currArticles = this.articles.slice(0,4);
     }else if (this.currPage === 2){
-      this.currArticles =  tab.slice(5,8);
+      this.currArticles =  this.articles.slice(5,8);
     }else if (this.currPage === 3){
       this.currArticles = this.articles.slice(8);
     }

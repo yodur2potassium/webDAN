@@ -16,6 +16,7 @@ var article_service_1 = require('./article/article.service');
 var error_list_component_1 = require("./error/error-list.component");
 var error_service_1 = require("./error/error.service");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
+var search_component_1 = require("./search/search.component");
 var AppComponent = (function () {
     function AppComponent(_articleService, _errorService) {
         this._articleService = _articleService;
@@ -45,10 +46,10 @@ var AppComponent = (function () {
         var tab = this.articles;
         console.log(this.currPage);
         if (this.currPage === 1) {
-            this.currArticles = tab.slice(0, 4);
+            this.currArticles = this.articles.slice(0, 4);
         }
         else if (this.currPage === 2) {
-            this.currArticles = tab.slice(5, 8);
+            this.currArticles = this.articles.slice(5, 8);
         }
         else if (this.currPage === 3) {
             this.currArticles = this.articles.slice(8);
@@ -63,7 +64,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent],
+            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent, search_component_1.SearchComponent],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 
