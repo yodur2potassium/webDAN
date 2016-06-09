@@ -2,7 +2,6 @@
 // TODO : Injecter le Router pour la navigation entre les differentes pages
 
 import { Component, OnInit } from '@angular/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from "@angular/router-deprecated";
 
 import { ArticleComponent } from './article/article.component';
 import { ArticleService } from './article/article.service';
@@ -21,28 +20,16 @@ import { FormComponent } from "./form/form.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleComponent, ErrorListComponent, SidebarComponent, ROUTER_DIRECTIVES],
+  directives: [ArticleComponent, ErrorListComponent, SidebarComponent],
   // Déclare les providers de service de recupération de données API
-  providers: [ArticleService, ErrorService, ROUTER_PROVIDERS],
+  providers: [ArticleService, ErrorService],
 })
-@RouteConfig([
-  {
-    path: '/',
-    name: 'Homepage',
-    component: ArticleComponent
-  },{
-    path: '/erreurs',
-    name: 'Errors',
-    component: ErrorListComponent
-  },{
-    path: '/contact',
-    name: 'Contact',
-    component: FormComponent
-  }
-])
+
 export class AppComponent implements OnInit {
   articles: Article[];
   errors: Error[];
+  currArticles: Article[]=[];
+  currPage: number;
   failed: any;
 
 
@@ -61,5 +48,18 @@ export class AppComponent implements OnInit {
   ngOnInit(){
       this.getArticles();
       this.getErrors();
+  }
+  // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
+  selectPage(page){
+    this.currPage = page;
+    let tab = this.articles;
+    console.log(this.currPage);
+    if (this.currPage === 1){
+      this.currArticles = tab.slice(0,4);
+    }else if (this.currPage === 2){
+      this.currArticles =  tab.slice(5,8);
+    }else if (this.currPage === 3){
+      this.currArticles = this.articles.slice(8);
+    }
   }
 }

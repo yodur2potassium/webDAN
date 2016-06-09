@@ -35,9 +35,9 @@ Basée sur le kit static fourni -->
     <div id="conteneurMenu">
         <nav class="container barreMenu conteneur">
             <ul class="nav navbar-nav">
-                <li class="active "><a href="#" class="liensMenu">Resultats</a></li>
-                <li><a href="#" class="liensMenu">Dates-clés</a></li>
-                <li><a href="#" class="liensMenu">Comex</a></li>
+                <li class="active " (click)="selectPage(1)"><a href="#" class="liensMenu">Resultats</a></li>
+                <li><a href="#" class="liensMenu" (click)="selectPage(2)">Dates-clés</a></li>
+                <li><a href="#" class="liensMenu" (click)="selectPage(3)">Comex</a></li>
             </ul>
         </nav><!-- /container -->
     </div>
@@ -49,7 +49,7 @@ Basée sur le kit static fourni -->
         <!-- Conteneur des articles, destiné a devenir ArticleListComponent -->
           <div class="col-sm-8" id="principal">
             <!-- Balise custom, appele ArticleComponent, destiné a intégrer ArticleListComponent -->
-            <my-article [articles]='articles'></my-article>
+            <my-article [articles]='currArticles'></my-article>
           </div>
           <!-- Sidebar -->
           <my-sidebar></my-sidebar>

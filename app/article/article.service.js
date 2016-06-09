@@ -23,6 +23,7 @@ var ArticleService = (function () {
     }
     // Retourne une promesse de type Article en json
     ArticleService.prototype.getArticles = function () {
+        // return ARTICLES;
         return this.http.get(this.artUrl)
             .toPromise()
             .then(function (response) { return response.json(); })

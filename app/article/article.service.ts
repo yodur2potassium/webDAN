@@ -19,6 +19,7 @@ export class ArticleService{
     // Retourne une promesse de type Article en json
     getArticles(): Promise<Article[]>{
 
+        // return ARTICLES;
         return this.http.get(this.artUrl)
                         .toPromise()
                         .then(response => response.json())

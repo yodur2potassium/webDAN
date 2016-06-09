@@ -11,17 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_deprecated_1 = require("@angular/router-deprecated");
 var article_component_1 = require('./article/article.component');
 var article_service_1 = require('./article/article.service');
 var error_list_component_1 = require("./error/error-list.component");
 var error_service_1 = require("./error/error.service");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
-var form_component_1 = require("./form/form.component");
 var AppComponent = (function () {
     function AppComponent(_articleService, _errorService) {
         this._articleService = _articleService;
         this._errorService = _errorService;
+        this.currArticles = [];
     }
     // Récupère l'intégralite des Articles via le service
     AppComponent.prototype.getArticles = function () {
@@ -40,6 +39,21 @@ var AppComponent = (function () {
         this.getArticles();
         this.getErrors();
     };
+    // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
+    AppComponent.prototype.selectPage = function (page) {
+        this.currPage = page;
+        var tab = this.articles;
+        console.log(this.currPage);
+        if (this.currPage === 1) {
+            this.currArticles = tab.slice(0, 4);
+        }
+        else if (this.currPage === 2) {
+            this.currArticles = tab.slice(5, 8);
+        }
+        else if (this.currPage === 3) {
+            this.currArticles = this.articles.slice(8);
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             // Definis la balise HTML custom
@@ -49,25 +63,10 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent, router_deprecated_1.ROUTER_DIRECTIVES],
+            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent],
             // Déclare les providers de service de recupération de données API
-            providers: [article_service_1.ArticleService, error_service_1.ErrorService, router_deprecated_1.ROUTER_PROVIDERS],
-        }),
-        router_deprecated_1.RouteConfig([
-            {
-                path: '/',
-                name: 'Homepage',
-                component: article_component_1.ArticleComponent
-            }, {
-                path: '/erreurs',
-                name: 'Errors',
-                component: error_list_component_1.ErrorListComponent
-            }, {
-                path: '/contact',
-                name: 'Contact',
-                component: form_component_1.FormComponent
-            }
-        ]), 
+            providers: [article_service_1.ArticleService, error_service_1.ErrorService],
+        }), 
         __metadata('design:paramtypes', [article_service_1.ArticleService, error_service_1.ErrorService])
     ], AppComponent);
     return AppComponent;
