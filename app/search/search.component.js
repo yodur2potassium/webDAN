@@ -9,6 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+// import { CORE_DIRECTIVES } from "@angular/common";
+// import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
 var SearchComponent = (function () {
     function SearchComponent() {
         this.values = '';
@@ -22,8 +24,6 @@ var SearchComponent = (function () {
             var regexp_1 = new RegExp(input, 'i');
             var results = this.errors.map(function (error) {
                 return regexp_1.test(error.title) ? error : undefined;
-                // let res = regexp.test(error.title)
-                // console.log(res);
             });
             results.forEach(function (el) {
                 el ? _this.results.push(el) : null;
@@ -38,7 +38,7 @@ var SearchComponent = (function () {
     SearchComponent = __decorate([
         core_1.Component({
             selector: 'my-search',
-            template: "\n    <input #box (keyup)=\"onKey(box.value)\">\n    <div>\n      <ul>\n        <li *ngFor=\"let result of results\"><h3 *ngIf=\"result\">{{ result.title }}</h3></li>\n      </ul>\n    </div>\n  "
+            template: "\n    <input #box (keyup)=\"onKey(box.value)\">\n        <span *ngIf='results'>\n          <ul class=\"dropdown\">\n            <li *ngFor=\"let result of results\"><a class=\"dropdown-item\">{{ result.title }}</a></li>\n          </ul>\n        </span>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

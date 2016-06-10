@@ -1,16 +1,19 @@
 import { Component, Input } from "@angular/core";
 import { Error } from "../error/error";
+// import { CORE_DIRECTIVES } from "@angular/common";
+// import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
 
 @Component({
   selector: 'my-search',
   template: `
     <input #box (keyup)="onKey(box.value)">
-    <div>
-      <ul>
-        <li *ngFor="let result of results"><h3 *ngIf="result">{{ result.title }}</h3></li>
-      </ul>
-    </div>
-  `
+        <span *ngIf='results'>
+          <ul class="dropdown">
+            <li *ngFor="let result of results"><a class="dropdown-item">{{ result.title }}</a></li>
+          </ul>
+        </span>
+  `,
+  // directives: [CORE_DIRECTIVES, DROPDOWN_DIRECTIVES]
 })
 export class SearchComponent {
   @Input()
@@ -26,14 +29,11 @@ export class SearchComponent {
       let regexp = new RegExp(input, 'i');
       let results = this.errors.map(error =>{
         return regexp.test(error.title)?error:undefined;
-        // let res = regexp.test(error.title)
-        // console.log(res);
       })
       results.forEach(el=>{
         el?this.results.push(el):null;
       })
       console.log(this.results);
-
     }
   }
 }

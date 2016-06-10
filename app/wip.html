@@ -4,17 +4,17 @@ Basée sur le kit static fourni -->
 <header class="navbar-static-top bs-docs-nav" id="header">
     <!-- Static navbar -->
     <!-- Destiné a devenir un ToolsComponents -->
-    <div id="bandeau-superieur">
-        <div class="container">
-            <a id="outil" href="#conteneurPrincipalMain">Zone outils WebDAN</a>
-            <my-search [errors]='errors'></my-search>
+    <div id="bandeau-superieur" class="row">
+        <div class="col-md-4">
+          <a href="#">Liste des erreurs</a>
+        </div>
             <!-- <div class="navbar-header">
 
             </div>
             <nav class="navbar-collapse collapse">
 
             </nav> -->
-        </div>
+        <my-search [errors]='errors'></my-search>
     </div>
     <!-- Zone avec bannière et logo -->
     <div id="conteneurLogo">
