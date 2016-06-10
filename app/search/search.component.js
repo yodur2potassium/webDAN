@@ -9,17 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+// import { Error } from "../error/error";
 var SearchComponent = (function () {
     function SearchComponent() {
         this.values = '';
     }
     SearchComponent.prototype.onKey = function (value) {
-        this.values += value + ' | ';
+        this.values = value;
+        console.log(this.values);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], SearchComponent.prototype, "errors", void 0);
     SearchComponent = __decorate([
         core_1.Component({
             selector: 'my-search',
-            template: "\n    <input #box (keyup)=\"onKey(box.value)\">\n    <p>{{values}}</p>\n  "
+            template: "\n    <input #box (keyup)=\"onKey(box.value)\">\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

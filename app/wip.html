@@ -6,13 +6,14 @@ Basée sur le kit static fourni -->
     <!-- Destiné a devenir un ToolsComponents -->
     <div id="bandeau-superieur">
         <div class="container">
-            <a id="evitement" href="#conteneurPrincipalMain">Zone outils WebDAN</a>
-            <div class="navbar-header">
+            <a id="outil" href="#conteneurPrincipalMain">Zone outils WebDAN</a>
+            <my-search [errors]='errors'></my-search>
+            <!-- <div class="navbar-header">
 
             </div>
             <nav class="navbar-collapse collapse">
 
-            </nav>
+            </nav> -->
         </div>
     </div>
     <!-- Zone avec bannière et logo -->
@@ -54,7 +55,7 @@ Basée sur le kit static fourni -->
           <!-- Sidebar -->
           <my-sidebar></my-sidebar>
       </div>
-      <my-error-list [errors]='errors'></my-error-list>
+      <!-- <my-error-list [errors]='errors'></my-error-list> -->
   </section>
 </div>
 <footer>
