@@ -8,11 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
 var core_1 = require("@angular/core");
 var error_1 = require("./error");
 var ErrorDetailComponent = (function () {
     function ErrorDetailComponent() {
     }
+    // WIP, récupère la cible de l'erreur...
     ErrorDetailComponent.prototype.getLinkedTo = function () {
         console.log(this.error);
         // this.error.getLinkedTo();

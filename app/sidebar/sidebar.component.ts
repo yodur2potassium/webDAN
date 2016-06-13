@@ -27,7 +27,6 @@ import { FormComponent } from "../form/form.component";
 export class SidebarComponent {
   images = IMAGES;
 
-
 }
 
 var IMAGES: Image[] = [

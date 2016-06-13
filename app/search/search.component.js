@@ -15,16 +15,23 @@ var SearchComponent = (function () {
     function SearchComponent() {
         this.values = '';
     }
+    // Fonction de recherche des erreurs, déclenchée par frappe clavier
     SearchComponent.prototype.onKey = function (value) {
         var _this = this;
         this.values = value;
+        // Tableau de résultats ré-initialisé
         this.results = [];
+        // Si plus de 3 caractères
         if (this.values.length > 3) {
+            // Ajoute \b au debut de l'input utilisatuer pour rechercher le debut d'un mot
             var input = '\\b' + this.values;
+            // Le parametre 'i' rend l'expression non sensible à la casse
             var regexp_1 = new RegExp(input, 'i');
+            // Renvoie une copie du tableau d'erreurs avec résultat ou undefined
             var results = this.errors.map(function (error) {
                 return regexp_1.test(error.title) ? error : undefined;
             });
+            // Parcours le tableau de résultats et ajoute les erreurs trouvées a l'attribut results du component
             results.forEach(function (el) {
                 el ? _this.results.push(el) : null;
             });

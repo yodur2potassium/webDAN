@@ -37,12 +37,12 @@ export class AppComponent implements OnInit {
   constructor(private _articleService: ArticleService,
               private _errorService: ErrorService,
               private titleService: Title) {}
-  // Récupère l'intégralite des Articles via le service
+  // Récupère l'intégralité des Articles via le service
   public getArticles() {
       this._articleService.getArticles().then(response => this.articles = response)
                                       .catch(failed => this.failed = failed); // This is a connexion error
   }
-  // Récupère l'intégralite des Erreurs via le service
+  // Récupère l'intégralité des Erreurs via le service
   public getErrors(){
     this._errorService.getErrors().then(response => this.errors = response)
                                 .catch(failed => this.failed = failed) // This is a connexion error
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
       this.getErrors();
       this.setTitle('Accueil');
   }
-  // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
+  // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
   public selectPage(page){
     let tab = this.articles;
     let siteName = 'Groupe La Poste en 2016';

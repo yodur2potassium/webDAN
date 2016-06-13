@@ -1,3 +1,4 @@
+// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
 import { Component, Input } from "@angular/core";
 
 import { Error } from "./error";
@@ -18,9 +19,11 @@ import { ErrorService } from "./error.service";
 })
 
 export class ErrorDetailComponent {
+  // Assigne l'erreur sélectionnée depuis le parent
   @Input()
   error: Error;
 
+  // WIP, récupère la cible de l'erreur...
   getLinkedTo(){
     console.log(this.error);
     // this.error.getLinkedTo();

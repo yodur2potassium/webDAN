@@ -25,13 +25,13 @@ var AppComponent = (function () {
         this.titleService = titleService;
         this.currArticles = [];
     }
-    // Récupère l'intégralite des Articles via le service
+    // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
         var _this = this;
         this._articleService.getArticles().then(function (response) { return _this.articles = response; })
             .catch(function (failed) { return _this.failed = failed; }); // This is a connexion error
     };
-    // Récupère l'intégralite des Erreurs via le service
+    // Récupère l'intégralité des Erreurs via le service
     AppComponent.prototype.getErrors = function () {
         var _this = this;
         this._errorService.getErrors().then(function (response) { return _this.errors = response; })
@@ -43,7 +43,7 @@ var AppComponent = (function () {
         this.getErrors();
         this.setTitle('Accueil');
     };
-    // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
+    // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
     AppComponent.prototype.selectPage = function (page) {
         var tab = this.articles;
         var siteName = 'Groupe La Poste en 2016';
