@@ -6,7 +6,7 @@ import { Error } from "../error/error";
 @Component({
   selector: 'my-search',
   template: `
-    <input #box (keyup)="onKey(box.value)">
+    <input #box (keyup)="onKey(box.value)" placeholder="Entrez votre recherche...">
         <span *ngIf='results'>
           <ul class="dropdown">
             <li *ngFor="let result of results"><a class="dropdown-item">{{ result.title }}</a></li>

@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 mai 2016, 11:31:06
+    Author     : xnef424
+*/
+header{
+	background: url("../images/tetiere.png") no-repeat center 35px;
+	background-color: #fff;
+	position: relative;
+}
+
+#bandeau-superieur{
+    background-color: lightcoral;
+    min-height: 35px; 
+}
+
+
+#conteneurPrincipal{
+    background-color: lightgrey;
+}
+
+#conteneurPrincipalMain {
+    background-color: lightskyblue;
+}
+
+#colonneDroite {
+    background-color: lightyellow;
+}
+
+#principal {
+    background-color: lightgreen;
+}
+
+#conteneurLogo{
+    height: 235px;
+
+}
+
+#conteneurMenu {
+    background-color: lightcyan;
+}
+
+.barreMenu{
+    background-color: lightskyblue
+}
+
+.conteneur{
+	max-width: 880px;
+	margin: 0 auto;
+}
+
+#conteneurLogoTexte{
+	position: relative;
+	top: 71px;
+	left: 66px;
+	max-width: 300px;
+}
+
+#logo{
+	border-right: 30px solid transparent;
+	height: 62px;
+	margin-top: 81px;
+
+}

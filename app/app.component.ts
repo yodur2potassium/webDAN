@@ -2,6 +2,7 @@
 // TODO : Injecter le Router pour la navigation entre les differentes pages
 
 import { Component, OnInit } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 import { ArticleComponent } from './article/article.component';
 import { ArticleService } from './article/article.service';
@@ -30,37 +31,46 @@ export class AppComponent implements OnInit {
   articles: Article[];
   errors: Error[];
   currArticles: Article[]=[];
-  currPage: number;
   failed: any;
 
 
-  constructor(private _articleService: ArticleService, private _errorService: ErrorService) {}
+  constructor(private _articleService: ArticleService,
+              private _errorService: ErrorService,
+              private titleService: Title) {}
   // Récupère l'intégralite des Articles via le service
-  getArticles() {
+  public getArticles() {
       this._articleService.getArticles().then(response => this.articles = response)
                                       .catch(failed => this.failed = failed); // This is a connexion error
   }
   // Récupère l'intégralite des Erreurs via le service
-  getErrors(){
+  public getErrors(){
     this._errorService.getErrors().then(response => this.errors = response)
                                 .catch(failed => this.failed = failed) // This is a connexion error
   }
   // Lifecycle hook, lance les fonctions a l'init du Component
-  ngOnInit(){
+  public ngOnInit(){
       this.getArticles();
       this.getErrors();
+      this.setTitle('Accueil');
   }
   // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
-  selectPage(page){
-    this.currPage = page;
+  public selectPage(page){
     let tab = this.articles;
-    console.log(this.currPage);
-    if (this.currPage === 1){
+    let siteName = 'Groupe La Poste en 2016';
+    console.log(page);
+    if (page === 'Résultats'){
       this.currArticles = this.articles.slice(0,4);
-    }else if (this.currPage === 2){
+      this.setTitle(page+' - '+siteName);
+    }else if (page === 'Dates clés'){
       this.currArticles =  this.articles.slice(5,8);
-    }else if (this.currPage === 3){
+      this.setTitle(page+' - '+siteName);
+    }else if (page === 'COMEX'){
       this.currArticles = this.articles.slice(8);
+      this.setTitle(page+' - '+siteName);
     }
+  }
+
+  public setTitle( newTitle: string){
+    this.titleService.setTitle( newTitle )
   }
 }

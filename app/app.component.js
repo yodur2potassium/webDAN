@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require("@angular/platform-browser");
 var article_component_1 = require('./article/article.component');
 var article_service_1 = require('./article/article.service');
 var error_list_component_1 = require("./error/error-list.component");
@@ -18,9 +19,10 @@ var error_service_1 = require("./error/error.service");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
 var search_component_1 = require("./search/search.component");
 var AppComponent = (function () {
-    function AppComponent(_articleService, _errorService) {
+    function AppComponent(_articleService, _errorService, titleService) {
         this._articleService = _articleService;
         this._errorService = _errorService;
+        this.titleService = titleService;
         this.currArticles = [];
     }
     // Récupère l'intégralite des Articles via le service
@@ -39,21 +41,28 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         this.getArticles();
         this.getErrors();
+        this.setTitle('Accueil');
     };
     // Routeur "maison", récupère le numero de page et assigne les articles a currArticles
     AppComponent.prototype.selectPage = function (page) {
-        this.currPage = page;
         var tab = this.articles;
-        console.log(this.currPage);
-        if (this.currPage === 1) {
+        var siteName = 'Groupe La Poste en 2016';
+        console.log(page);
+        if (page === 'Résultats') {
             this.currArticles = this.articles.slice(0, 4);
+            this.setTitle(page + ' - ' + siteName);
         }
-        else if (this.currPage === 2) {
+        else if (page === 'Dates clés') {
             this.currArticles = this.articles.slice(5, 8);
+            this.setTitle(page + ' - ' + siteName);
         }
-        else if (this.currPage === 3) {
+        else if (page === 'COMEX') {
             this.currArticles = this.articles.slice(8);
+            this.setTitle(page + ' - ' + siteName);
         }
+    };
+    AppComponent.prototype.setTitle = function (newTitle) {
+        this.titleService.setTitle(newTitle);
     };
     AppComponent = __decorate([
         core_1.Component({
@@ -68,7 +77,7 @@ var AppComponent = (function () {
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 
-        __metadata('design:paramtypes', [article_service_1.ArticleService, error_service_1.ErrorService])
+        __metadata('design:paramtypes', [article_service_1.ArticleService, error_service_1.ErrorService, platform_browser_1.Title])
     ], AppComponent);
     return AppComponent;
 }());
