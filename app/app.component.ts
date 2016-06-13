@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
   public ngOnInit(){
       this.getArticles();
       this.getErrors();
-      this.setTitle('Accueil');
+      this.setTitle('Accueil - webDAN');
   }
   // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
   public selectPage(page){

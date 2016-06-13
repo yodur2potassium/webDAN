@@ -26,6 +26,8 @@ export class ErrorDetailComponent {
   // WIP, récupère la cible de l'erreur...
   getLinkedTo(){
     console.log(this.error);
-    // this.error.getLinkedTo();
+    if(this.error.article){
+      console.log('plop');
+    }
   }
 }

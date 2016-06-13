@@ -30,7 +30,7 @@ var ErrorListComponent = (function () {
     ErrorListComponent = __decorate([
         core_1.Component({
             selector: 'my-error-list',
-            template: "<div>\n                  <h3>Liste des erreurs</h3>\n                  <ul>\n                    <li *ngFor=\"let error of errors\" (click)=\"onSelect(error)\">\n                      <h4>{{error.accede_code}} - {{error.title}}</h4>\n                      <my-error-detail [error]=\"selectedError\"></my-error-detail>\n                    </li>\n                  </ul>\n              </div>\n              ",
+            template: "<div>\n                  <h3>Liste des erreurs</h3>\n                  <ul>\n                    <li *ngFor=\"let error of errors\" (click)=\"onSelect(error)\">\n                      <h4>{{error.accede_code}} - {{error.title}}</h4>\n                    </li>\n                  </ul>\n                  <my-error-detail [error]=\"selectedError\"></my-error-detail>\n              </div>\n              ",
             directives: [error_detail_component_1.ErrorDetailComponent],
         }), 
         __metadata('design:paramtypes', [])

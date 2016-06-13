@@ -17,7 +17,9 @@ var ErrorDetailComponent = (function () {
     // WIP, récupère la cible de l'erreur...
     ErrorDetailComponent.prototype.getLinkedTo = function () {
         console.log(this.error);
-        // this.error.getLinkedTo();
+        if (this.error.article) {
+            console.log('plop');
+        }
     };
     __decorate([
         core_1.Input(), 

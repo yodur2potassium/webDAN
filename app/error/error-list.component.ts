@@ -16,9 +16,9 @@ import { ErrorDetailComponent } from "./error-detail.component";
                   <ul>
                     <li *ngFor="let error of errors" (click)="onSelect(error)">
                       <h4>{{error.accede_code}} - {{error.title}}</h4>
-                      <my-error-detail [error]="selectedError"></my-error-detail>
                     </li>
                   </ul>
+                  <my-error-detail [error]="selectedError"></my-error-detail>
               </div>
               `,
     directives: [ErrorDetailComponent],
