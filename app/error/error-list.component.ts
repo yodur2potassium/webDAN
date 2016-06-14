@@ -12,8 +12,8 @@ import { ErrorDetailComponent } from "./error-detail.component";
 @Component({
     selector: 'my-error-list',
     template: `<div>
-                  <h3>Liste des erreurs</h3>
-                  <ul>
+                  <button (click)="isVisible = !isVisible">Afficher/Cacher la liste des erreurs</button>
+                  <ul [style.display]="isVisible? 'inline' : ' none' ">
                     <li *ngFor="let error of errors" (click)="onSelect(error)">
                       <h4>{{error.accede_code}} - {{error.title}}</h4>
                     </li>
