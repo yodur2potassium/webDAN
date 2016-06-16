@@ -6,7 +6,7 @@ Basée sur le kit static fourni -->
     <!-- Destiné a devenir un ToolsComponents -->
     <div id="bandeau-superieur" class="row">
         <div class="col-md-4">
-          <my-error-list [errors]='errors'></my-error-list>
+          <my-error-list [errors]="errors"></my-error-list>
         </div>
             <!-- <div class="navbar-header">
 
@@ -36,7 +36,7 @@ Basée sur le kit static fourni -->
     <div id="conteneurMenu">
         <nav class="container barreMenu conteneur">
             <ul class="nav navbar-nav">
-                <li class="active " (click)="selectPage('Résultats')"><a href="#" class="liensMenu">Resultats</a></li>
+                <li class="active " (click)="selectPage('Résultats')"><a href="#" class="liensMenu">Résultats</a></li>
                 <li><a href="#" class="liensMenu" (click)="selectPage('Dates clés')">Dates-clés</a></li>
                 <li><a href="#" class="liensMenu" (click)="selectPage('COMEX')">Comex</a></li>
             </ul>

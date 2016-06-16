@@ -1,15 +1,15 @@
 import { Component, Input } from "@angular/core";
 import { Error } from "../error/error";
-// import { CORE_DIRECTIVES } from "@angular/common";
-// import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
+import { CORE_DIRECTIVES } from "@angular/common";
+import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
 
 @Component({
   selector: 'my-search',
   template: `
     <input #box (keyup)="onKey(box.value)" placeholder="Entrez votre recherche...">
         <span *ngIf='results'>
-          <ul class="dropdown">
-            <li *ngFor="let result of results"><a class="dropdown-item">{{ result.title }}</a></li>
+          <ul [class.dropdown]="true">
+            <li *ngFor="let result of results" [class.dropdown-item]="true"><a>{{ result.title }}</a></li>
           </ul>
         </span>
   `,

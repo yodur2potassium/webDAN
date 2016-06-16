@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-// import { CORE_DIRECTIVES } from "@angular/common";
-// import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
 var SearchComponent = (function () {
     function SearchComponent() {
         this.values = '';
@@ -45,7 +43,7 @@ var SearchComponent = (function () {
     SearchComponent = __decorate([
         core_1.Component({
             selector: 'my-search',
-            template: "\n    <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\">\n        <span *ngIf='results'>\n          <ul class=\"dropdown\">\n            <li *ngFor=\"let result of results\"><a class=\"dropdown-item\">{{ result.title }}</a></li>\n          </ul>\n        </span>\n  ",
+            template: "\n    <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\">\n        <span *ngIf='results'>\n          <ul [class.dropdown]=\"true\">\n            <li *ngFor=\"let result of results\" [class.dropdown-item]=\"true\"><a>{{ result.title }}</a></li>\n          </ul>\n        </span>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

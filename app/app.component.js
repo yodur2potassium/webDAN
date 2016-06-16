@@ -19,12 +19,16 @@ var error_service_1 = require("./error/error.service");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
 var search_component_1 = require("./search/search.component");
 var AppComponent = (function () {
-    function AppComponent(_articleService, _errorService, titleService) {
+    function AppComponent(_articleService, _errorService, _titleService) {
         this._articleService = _articleService;
         this._errorService = _errorService;
-        this.titleService = titleService;
+        this._titleService = _titleService;
         this.currArticles = [];
     }
+    // Attache un eventListener sur le clic au document
+    AppComponent.prototype.onClick = function (e) {
+        console.log(e);
+    };
     // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
         var _this = this;
@@ -42,28 +46,40 @@ var AppComponent = (function () {
         this.getArticles();
         this.getErrors();
         this.setTitle('Accueil - webDAN');
+        this.testFunction();
+        this.currArticles = welcome;
     };
     // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
     AppComponent.prototype.selectPage = function (page) {
         var tab = this.articles;
-        var siteName = 'Groupe La Poste en 2016';
+        var siteName = 'Le Groupe La Poste';
         console.log(page);
         if (page === 'Résultats') {
             this.currArticles = this.articles.slice(0, 4);
-            this.setTitle(page + ' - ' + siteName);
+            this.setTitle(page + ' | ' + siteName);
         }
         else if (page === 'Dates clés') {
             this.currArticles = this.articles.slice(5, 8);
-            this.setTitle(page + ' - ' + siteName);
+            this.setTitle(page + ' | ' + siteName);
         }
         else if (page === 'COMEX') {
             this.currArticles = this.articles.slice(8);
-            this.setTitle(page + ' - ' + siteName);
+            this.setTitle(page);
         }
     };
+    // Utilise titleService pour modifier le titre de la page
     AppComponent.prototype.setTitle = function (newTitle) {
-        this.titleService.setTitle(newTitle);
+        this._titleService.setTitle(newTitle);
     };
+    AppComponent.prototype.testFunction = function () {
+        document.addEventListener('click', function (e) { console.log(e.target); });
+    };
+    __decorate([
+        core_1.HostListener('document:click'['$event.target']), 
+        __metadata('design:type', Function), 
+        __metadata('design:paramtypes', [Object]), 
+        __metadata('design:returntype', void 0)
+    ], AppComponent.prototype, "onClick", null);
     AppComponent = __decorate([
         core_1.Component({
             // Definis la balise HTML custom
@@ -82,4 +98,5 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var welcome = [{ id: 1000, title: "<h3>Bienvenue</h3>", subtitle: "<h4>sur le projet webDAN</h4>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: [] }];
 //# sourceMappingURL=app.component.js.map

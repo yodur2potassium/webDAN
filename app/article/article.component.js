@@ -17,8 +17,6 @@ var ArticleComponent = (function () {
     function ArticleComponent() {
     }
     ArticleComponent.prototype.testFunction = function () {
-        console.log(this);
-        console.log(this.test);
     };
     __decorate([
         core_1.Input(), 
@@ -29,7 +27,7 @@ var ArticleComponent = (function () {
             // Défini la balise HTML custom
             selector: 'my-article',
             // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
-            template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ",
+            template: "\n                <div *ngFor=\"let article of articles\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ", styles: ["\n      .selected{\n        border: 3px solid rgb(255, 0, 0);\n        background-color: #F2DEDE;\n        color: rgb(0, 0, 0)\n        box-shadow: 1px 1px 12px #555;\n      }\n      "],
             // Déclare les directives utilisées par le composant
             directives: [image_component_1.ImageComponent, video_component_1.VideoComponent]
         }), 

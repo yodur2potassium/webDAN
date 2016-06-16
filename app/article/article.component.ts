@@ -25,7 +25,14 @@ import { VideoComponent } from "../video/video.component";
                     <my-image [image]="article.images[1]"></my-image>
                 </section>
                 </div>
-    `,
+    `,styles: [`
+      .selected{
+        border: 3px solid rgb(255, 0, 0);
+        background-color: #F2DEDE;
+        color: rgb(0, 0, 0)
+        box-shadow: 1px 1px 12px #555;
+      }
+      `],
     // Déclare les directives utilisées par le composant
     directives: [ImageComponent, VideoComponent]
 
@@ -40,7 +47,6 @@ export class ArticleComponent {
 
 
     testFunction() {
-      console.log(this);
-      console.log(this.test);
+
     }
 }
