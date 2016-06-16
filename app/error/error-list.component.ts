@@ -29,10 +29,12 @@ export class ErrorListComponent {
   selectedError: Error;
   selErrorTarget: any;
   failed: any;
+  isVisible = false;
 
   // Sélectionne une erreur
   onSelect(error: Error){
     this.selectedError = error;
+    this.isVisible = false;
     console.log("Cible de l'erreur : "+error.target);
   }
 }

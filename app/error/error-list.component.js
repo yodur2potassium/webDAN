@@ -17,10 +17,12 @@ var error_detail_component_1 = require("./error-detail.component");
 // Appelle le composant error-detail sur l'erreur selectionnée
 var ErrorListComponent = (function () {
     function ErrorListComponent() {
+        this.isVisible = false;
     }
     // Sélectionne une erreur
     ErrorListComponent.prototype.onSelect = function (error) {
         this.selectedError = error;
+        this.isVisible = false;
         console.log("Cible de l'erreur : " + error.target);
     };
     __decorate([

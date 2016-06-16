@@ -8,8 +8,11 @@ import { ErrorService } from "./error.service";
   selector: 'my-error-detail',
   template: `
     <div id="erreurDetail" *ngIf="error" (click)="getLinkedTo()">
-      <p>{{error.description}}</p>
+      <h4>{{ error.title }}</h4>
+      <strong>Correction :</strong>
+      <p>{{ error.description }}</p>
       <ul>
+      <strong>Documentation :</strong>
         <li *ngFor="let doc of error.documentations">
           <a href="{{doc.source}}">Lien vers ressources externes en {{doc.lang}}</a>
         </li>

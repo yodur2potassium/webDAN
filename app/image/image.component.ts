@@ -9,10 +9,17 @@ import { Image } from "./image";
   selector: 'my-image',
   template: `
     <figure *ngIf="image" role="group">
-      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}}>
+      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} (click)="isSelected =! isSelected" [class.selected]="isSelected">
       <figcaption class="text-center">{{image.caption}}</figcaption>
     </figure>
-  `,
+  `,styles: [`
+    .selected{
+      border: 3px solid rgb(255, 0, 0);
+      background-color: rgb(255, 255, 0);
+      color: rgb(0, 0, 0);
+      box-shadow: 1px 1px 12px rgb(255, 0, 0);
+    }
+    `],
 })
 
 export class ImageComponent{

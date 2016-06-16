@@ -27,7 +27,7 @@ var AppComponent = (function () {
     }
     // Attache un eventListener sur le clic au document
     AppComponent.prototype.onClick = function (e) {
-        console.log(e);
+        console.log('plop');
     };
     // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
@@ -46,7 +46,7 @@ var AppComponent = (function () {
         this.getArticles();
         this.getErrors();
         this.setTitle('Accueil - webDAN');
-        this.testFunction();
+        // this.testFunction();
         this.currArticles = welcome;
     };
     // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
@@ -98,5 +98,5 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var welcome = [{ id: 1000, title: "<h3>Bienvenue</h3>", subtitle: "<h4>sur le projet webDAN</h4>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: [] }];
+var welcome = [{ id: 1000, title: "<h2>Bienvenue</h2>", subtitle: "<h3>sur le projet webDAN</h3>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: [] }];
 //# sourceMappingURL=app.component.js.map

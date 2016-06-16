@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : xnef424
 */
 header{
-	background: url("../images/tetiere.png") no-repeat center 35px;
+	background: url("../public/images/tetiere.png") no-repeat center 35px;
 	background-color: #fff;
 	position: relative;
 }

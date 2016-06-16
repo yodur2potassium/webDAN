@@ -28,8 +28,6 @@ import { SearchComponent } from "./search/search.component";
 })
 
 
-
-
 export class AppComponent implements OnInit {
   articles: Article[];
   errors: Error[];
@@ -41,11 +39,11 @@ export class AppComponent implements OnInit {
               private _errorService: ErrorService,
               private _titleService: Title) {}
 
-  // Attache un eventListener sur le clic au document
-  @HostListener('document:click'['$event.target']) onClick(e) {
-    console.log(e);
+// Attache un eventListener sur le clic au document
+@HostListener('document:click'['$event.target']) onClick(e) {
+  console.log('plop');
+}
 
-  }
   // Récupère l'intégralité des Articles via le service
   public getArticles() {
     this._articleService.getArticles().then(response => this.articles = response)
@@ -61,7 +59,7 @@ export class AppComponent implements OnInit {
       this.getArticles();
       this.getErrors();
       this.setTitle('Accueil - webDAN');
-      this.testFunction();
+      // this.testFunction();
       this.currArticles = welcome;
   }
   // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
@@ -91,4 +89,4 @@ export class AppComponent implements OnInit {
   }
 
 }
-var welcome = [{id: 1000, title: "<h3>Bienvenue</h3>", subtitle: "<h4>sur le projet webDAN</h4>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: []}];
+var welcome = [{id: 1000, title: "<h2>Bienvenue</h2>", subtitle: "<h3>sur le projet webDAN</h3>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: []}];

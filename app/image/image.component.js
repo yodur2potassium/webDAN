@@ -23,7 +23,7 @@ var ImageComponent = (function () {
     ImageComponent = __decorate([
         core_1.Component({
             selector: 'my-image',
-            template: "\n    <figure *ngIf=\"image\" role=\"group\">\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}}>\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ",
+            template: "\n    <figure *ngIf=\"image\" role=\"group\">\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} (click)=\"isSelected =! isSelected\" [class.selected]=\"isSelected\">\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
         }), 
         __metadata('design:paramtypes', [])
     ], ImageComponent);
