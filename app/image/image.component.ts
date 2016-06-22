@@ -24,8 +24,8 @@ import { Image } from "./image";
 
 export class ImageComponent implements OnInit {
   // Assigne l'input du parent à l'attribut image
-  @Input()
-  image: Image;
+  @Input() image: Image;
+  @Input() displayed: boolean = false;
   isSelected = false;
 
   ngOnInit(){
@@ -37,5 +37,9 @@ export class ImageComponent implements OnInit {
       this.isSelected = true;
       console.log('hasError');
     }
+  }
+
+  public onDisplay($event){
+    console.log($event);
   }
 }

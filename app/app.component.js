@@ -14,10 +14,9 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require("@angular/platform-browser");
 var article_list_component_1 = require('./article/article-list.component');
 var article_service_1 = require('./article/article.service');
-var error_list_component_1 = require("./error/error-list.component");
 var error_service_1 = require("./error/error.service");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
-var search_component_1 = require("./search/search.component");
+var toolbar_component_1 = require("./toolbar/toolbar.component");
 var AppComponent = (function () {
     function AppComponent(_articleService, _errorService, _titleService) {
         this._articleService = _articleService;
@@ -71,6 +70,9 @@ var AppComponent = (function () {
     AppComponent.prototype.setTitle = function (newTitle) {
         this._titleService.setTitle(newTitle);
     };
+    AppComponent.prototype.onDisplay = function ($event) {
+        console.log($event);
+    };
     AppComponent.prototype.testFunction = function () {
         // document.addEventListener('click',(e)=>{console.log(e.target)});
         document.addEventListener('click', function (e) {
@@ -88,7 +90,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_list_component_1.ArticleListComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent, search_component_1.SearchComponent],
+            directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 

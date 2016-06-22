@@ -4,18 +4,7 @@ Basée sur le kit static fourni -->
 <header class="navbar-static-top bs-docs-nav" id="header">
     <!-- Static navbar -->
     <!-- Destiné a devenir un ToolsComponent -->
-    <div id="bandeau-superieur" class="row">
-        <div class="col-md-4">
-          <my-error-list [errors]="errors"></my-error-list>
-        </div>
-            <!-- <div class="navbar-header">
-
-            </div>
-            <nav class="navbar-collapse collapse">
-
-            </nav> -->
-        <my-search [errors]='errors'></my-search>
-    </div>
+    <my-toolbar [errors]="errors" (errorDisplayed)="onDisplay($event)"></my-toolbar>
     <!-- Zone avec bannière et logo -->
     <div id="conteneurLogo">
         <div class="container conteneur">

@@ -7,12 +7,11 @@ import { Title } from "@angular/platform-browser";
 import { ArticleListComponent } from './article/article-list.component';
 import { ArticleService } from './article/article.service';
 import { Article } from "./article/article";
-import { ErrorListComponent } from "./error/error-list.component";
 import { ErrorService } from "./error/error.service";
 import { Error } from "./error/error";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { FormComponent } from "./form/form.component";
-import { SearchComponent } from "./search/search.component";
+import { ToolbarComponent } from "./toolbar/toolbar.component";
 
 @Component({
   // Definis la balise HTML custom
@@ -22,7 +21,7 @@ import { SearchComponent } from "./search/search.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleListComponent, ErrorListComponent, SidebarComponent, SearchComponent],
+  directives: [ArticleListComponent, SidebarComponent, ToolbarComponent],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
@@ -81,6 +80,10 @@ export class AppComponent implements OnInit {
   // Utilise titleService pour modifier le titre de la page
   public setTitle( newTitle: string){
     this._titleService.setTitle( newTitle )
+  }
+
+  public onDisplay($event){
+    console.log($event);
   }
 
   public testFunction() {

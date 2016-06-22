@@ -15,6 +15,7 @@ var image_1 = require("./image");
 // Déclare la balise custom et le template
 var ImageComponent = (function () {
     function ImageComponent() {
+        this.displayed = false;
         this.isSelected = false;
     }
     ImageComponent.prototype.ngOnInit = function () {
@@ -26,10 +27,17 @@ var ImageComponent = (function () {
             console.log('hasError');
         }
     };
+    ImageComponent.prototype.onDisplay = function ($event) {
+        console.log($event);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', image_1.Image)
     ], ImageComponent.prototype, "image", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Boolean)
+    ], ImageComponent.prototype, "displayed", void 0);
     ImageComponent = __decorate([
         core_1.Component({
             selector: 'my-image',
