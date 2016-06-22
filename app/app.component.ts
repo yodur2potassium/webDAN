@@ -39,10 +39,6 @@ export class AppComponent implements OnInit {
               private _errorService: ErrorService,
               private _titleService: Title) {}
 
-// Attache un eventListener sur le clic au document
-@HostListener('document:click'['$event.target']) onClick(e) {
-  console.log('plop');
-}
 
   // Récupère l'intégralité des Articles via le service
   public getArticles() {
@@ -85,7 +81,12 @@ export class AppComponent implements OnInit {
   }
 
   public testFunction() {
-    document.addEventListener('click',(e)=>{console.log(e.target)});
+    // document.addEventListener('click',(e)=>{console.log(e.target)});
+    document.addEventListener('click',(e)=>{
+      console.log(e.target.classList);
+      let target = e.target;
+      target.setAttribute('class', 'selected');
+    });
   }
 
 }

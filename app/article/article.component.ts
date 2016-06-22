@@ -16,11 +16,11 @@ import { VideoComponent } from "../video/video.component";
 
     // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
     template: `
-                <div *ngFor="let article of articles"  (click)="hasError(article)">
-                <section>
-                    <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" (click)="isSelected =! isSelected" [class.selected]="isSelected"></div>
+                <div *ngFor="let article of articles"  (click)="displayErrors(article)">
+                <section [class.selected]="mainSelected">
+                    <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" [class.selected]="titleSelected"></div>
                     <my-image [image]="article.images[0]"></my-image>
-                    <div innerHTML="{{article.content}}"></div>
+                    <div innerHTML="{{article.content}}" [class.selected]="contentSelected"></div>
                     <!--<my-video [video]="article.videos[0]"></my-video>-->
                     <my-image [image]="article.images[1]"></my-image>
                 </section>
@@ -43,11 +43,23 @@ export class ArticleComponent {
     articles: Article[];
     error: any;
     test: string;
+    contentSelected = false;
+    titleSelected = false;
+    mainSelected = false;
 
-    hasError(article: Article){
-      console.log(article);
+    public displayErrors(article: Article){
+      // console.log(article);
       if(article.errors[0]){
-        console.log('plop');
+        console.log(article.errors[0].target);
+        let target = article.errors[0].target;
+        switch (target){
+          case "title" :
+          case "subtitle": this.titleSelected = true;
+          break;
+          case "content" : this.contentSelected = true;
+          break;
+          // default: this.mainSelected= true;
+        }
       }
     }
 

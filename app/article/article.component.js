@@ -15,11 +15,24 @@ var image_component_1 = require("../image/image.component");
 var video_component_1 = require("../video/video.component");
 var ArticleComponent = (function () {
     function ArticleComponent() {
+        this.contentSelected = false;
+        this.titleSelected = false;
+        this.mainSelected = false;
     }
-    ArticleComponent.prototype.hasError = function (article) {
-        console.log(article);
+    ArticleComponent.prototype.displayErrors = function (article) {
+        // console.log(article);
         if (article.errors[0]) {
-            console.log('plop');
+            console.log(article.errors[0].target);
+            var target = article.errors[0].target;
+            switch (target) {
+                case "title":
+                case "subtitle":
+                    this.titleSelected = true;
+                    break;
+                case "content":
+                    this.contentSelected = true;
+                    break;
+            }
         }
     };
     ArticleComponent.prototype.testFunction = function () {
@@ -33,7 +46,7 @@ var ArticleComponent = (function () {
             // Défini la balise HTML custom
             selector: 'my-article',
             // Template HTML effectuant l'affichage, parcours le tabeau d'articles, appelle my-image et injecte l'image si présente
-            template: "\n                <div *ngFor=\"let article of articles\"  (click)=\"hasError(article)\">\n                <section>\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\" (click)=\"isSelected =! isSelected\" [class.selected]=\"isSelected\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\"></div>\n                    <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ", styles: ["\n      .selected{\n        border: 3px solid rgb(255, 0, 0);\n        background-color: rgb(255, 255, 0);\n        color: rgb(0, 0, 0);\n        box-shadow: 1px 1px 12px rgb(255, 0, 0);\n      }\n      "],
+            template: "\n                <div *ngFor=\"let article of articles\"  (click)=\"displayErrors(article)\">\n                <section [class.selected]=\"mainSelected\">\n                    <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\" [class.selected]=\"titleSelected\"></div>\n                    <my-image [image]=\"article.images[0]\"></my-image>\n                    <div innerHTML=\"{{article.content}}\" [class.selected]=\"contentSelected\"></div>\n                    <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n                    <my-image [image]=\"article.images[1]\"></my-image>\n                </section>\n                </div>\n    ", styles: ["\n      .selected{\n        border: 3px solid rgb(255, 0, 0);\n        background-color: rgb(255, 255, 0);\n        color: rgb(0, 0, 0);\n        box-shadow: 1px 1px 12px rgb(255, 0, 0);\n      }\n      "],
             // Déclare les directives utilisées par le composant
             directives: [image_component_1.ImageComponent, video_component_1.VideoComponent]
         }), 

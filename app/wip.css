@@ -80,3 +80,10 @@ header{
 .img-side{
 	margin-top: 25px;
 }
+
+.selected{
+	border: 3px solid rgb(255, 0, 0);
+	background-color: rgb(255, 255, 0);
+	color: rgb(0, 0, 0);
+	box-shadow: 1px 1px 12px rgb(255, 0, 0);
+}

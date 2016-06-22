@@ -25,10 +25,6 @@ var AppComponent = (function () {
         this._titleService = _titleService;
         this.currArticles = [];
     }
-    // Attache un eventListener sur le clic au document
-    AppComponent.prototype.onClick = function (e) {
-        console.log('plop');
-    };
     // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
         var _this = this;
@@ -72,14 +68,13 @@ var AppComponent = (function () {
         this._titleService.setTitle(newTitle);
     };
     AppComponent.prototype.testFunction = function () {
-        document.addEventListener('click', function (e) { console.log(e.target); });
+        // document.addEventListener('click',(e)=>{console.log(e.target)});
+        document.addEventListener('click', function (e) {
+            console.log(e.target.classList);
+            var target = e.target;
+            target.setAttribute('class', 'selected');
+        });
     };
-    __decorate([
-        core_1.HostListener('document:click'['$event.target']), 
-        __metadata('design:type', Function), 
-        __metadata('design:paramtypes', [Object]), 
-        __metadata('design:returntype', void 0)
-    ], AppComponent.prototype, "onClick", null);
     AppComponent = __decorate([
         core_1.Component({
             // Definis la balise HTML custom

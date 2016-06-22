@@ -15,7 +15,17 @@ var image_1 = require("./image");
 // Déclare la balise custom et le template
 var ImageComponent = (function () {
     function ImageComponent() {
+        this.isSelected = false;
     }
+    ImageComponent.prototype.ngOnInit = function () {
+        // this.displayErrors(this.image);
+    };
+    ImageComponent.prototype.displayErrors = function (image) {
+        if (image.errors[0]) {
+            this.isSelected = true;
+            console.log('hasError');
+        }
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', image_1.Image)
@@ -23,7 +33,7 @@ var ImageComponent = (function () {
     ImageComponent = __decorate([
         core_1.Component({
             selector: 'my-image',
-            template: "\n    <figure *ngIf=\"image\" role=\"group\">\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} (click)=\"isSelected =! isSelected\" [class.selected]=\"isSelected\">\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
+            template: "\n    <figure *ngIf=\"image\" role=\"group\" (click)=\"displayErrors(image)\">\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} [class.selected]=\"isSelected\">\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
         }), 
         __metadata('design:paramtypes', [])
     ], ImageComponent);
