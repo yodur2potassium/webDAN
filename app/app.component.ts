@@ -4,7 +4,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from "@angular/platform-browser";
 
-import { ArticleComponent } from './article/article.component';
+import { ArticleListComponent } from './article/article-list.component';
 import { ArticleService } from './article/article.service';
 import { Article } from "./article/article";
 import { ErrorListComponent } from "./error/error-list.component";
@@ -22,7 +22,7 @@ import { SearchComponent } from "./search/search.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleComponent, ErrorListComponent, SidebarComponent, SearchComponent],
+  directives: [ArticleListComponent, ErrorListComponent, SidebarComponent, SearchComponent],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
@@ -72,6 +72,9 @@ export class AppComponent implements OnInit {
     }else if (page === 'COMEX'){
       this.currArticles = this.articles.slice(8);
       this.setTitle(page);
+    }else if (page === 'Accueil'){
+      this.currArticles = welcome;
+      this.setTitle(homeTitle);
     }
   }
 
@@ -90,4 +93,5 @@ export class AppComponent implements OnInit {
   }
 
 }
+var homeTitle = "Accueil - webDAN";
 var welcome = [{id: 1000, title: "<h2>Bienvenue</h2>", subtitle: "<h3>sur le projet webDAN</h3>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: []}];

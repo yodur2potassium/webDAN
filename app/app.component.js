@@ -12,7 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require("@angular/platform-browser");
-var article_component_1 = require('./article/article.component');
+var article_list_component_1 = require('./article/article-list.component');
 var article_service_1 = require('./article/article.service');
 var error_list_component_1 = require("./error/error-list.component");
 var error_service_1 = require("./error/error.service");
@@ -62,6 +62,10 @@ var AppComponent = (function () {
             this.currArticles = this.articles.slice(8);
             this.setTitle(page);
         }
+        else if (page === 'Accueil') {
+            this.currArticles = welcome;
+            this.setTitle(homeTitle);
+        }
     };
     // Utilise titleService pour modifier le titre de la page
     AppComponent.prototype.setTitle = function (newTitle) {
@@ -84,7 +88,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_component_1.ArticleComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent, search_component_1.SearchComponent],
+            directives: [article_list_component_1.ArticleListComponent, error_list_component_1.ErrorListComponent, sidebar_component_1.SidebarComponent, search_component_1.SearchComponent],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 
@@ -93,5 +97,6 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var homeTitle = "Accueil - webDAN";
 var welcome = [{ id: 1000, title: "<h2>Bienvenue</h2>", subtitle: "<h3>sur le projet webDAN</h3>", content: "<p>Utilisez les liens pour naviguer sur le site et voir les articles, les outils pour acceder au erreurs se trouvent en haut de la page...", created: "", author: "", errors: [], images: [], videos: [] }];
 //# sourceMappingURL=app.component.js.map

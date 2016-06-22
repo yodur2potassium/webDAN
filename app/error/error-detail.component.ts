@@ -2,7 +2,6 @@
 import { Component, Input } from "@angular/core";
 
 import { Error } from "./error";
-import { ErrorService } from "./error.service";
 
 @Component ({
   selector: 'my-error-detail',
