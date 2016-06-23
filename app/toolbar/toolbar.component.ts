@@ -13,8 +13,9 @@ import { Error } from "../error/error";
           <my-error-list [errors]="errors"></my-error-list>
         </div>
         <my-search [errors]='errors'></my-search>
-        <button (click)="displayErrors()">Afficher les erreurs de la page</button>
-        <div class="col-md-4"> </div>
+        <div class="col-md-4">
+          <button (click)="displayErrors()">Afficher les erreurs de la page</button>
+        </div>
     </div>
   `,
   directives: [SearchComponent, ErrorListComponent],

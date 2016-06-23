@@ -41,7 +41,7 @@ Basée sur le kit static fourni -->
         <!-- Conteneur des articles, destiné a devenir ArticleListComponent -->
           <div class="col-sm-8" id="principal">
             <!-- Balise custom, appele ArticleComponent, destiné a intégrer ArticleListComponent -->
-            <my-article-list [articles]='currArticles'></my-article-list>
+            <my-article-list [articles]='currArticles' [errorsDisplayed]="errorsDisplayed"></my-article-list>
           </div>
           <!-- Sidebar -->
           <my-sidebar></my-sidebar>

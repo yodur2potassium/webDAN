@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   articles: Article[];
   errors: Error[];
   currArticles: Article[]=[];
+  errorsDisplayed: boolean = false;
   failed: any;
 
 
@@ -59,6 +60,7 @@ export class AppComponent implements OnInit {
   }
   // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
   public selectPage(page){
+    this.errorsDisplayed = false;
     let tab = this.articles;
     let siteName = 'Le Groupe La Poste';
     console.log(page);
@@ -84,15 +86,17 @@ export class AppComponent implements OnInit {
 
   public onDisplay($event){
     console.log($event);
+    this.errorsDisplayed = true;
+    console.log(this.errorsDisplayed);
   }
 
   public testFunction() {
     // document.addEventListener('click',(e)=>{console.log(e.target)});
-    document.addEventListener('click',(e)=>{
-      console.log(e.target.classList);
-      let target = e.target;
-      target.setAttribute('class', 'selected');
-    });
+    // document.addEventListener('click',(e)=>{
+    //   console.log(e.target.classList);
+    //   let target = e.target;
+    //   target.setAttribute('class', 'selected');
+    // });
   }
 
 }

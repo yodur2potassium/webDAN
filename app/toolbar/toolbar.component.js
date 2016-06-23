@@ -30,7 +30,7 @@ var ToolbarComponent = (function () {
     ToolbarComponent = __decorate([
         core_1.Component({
             selector: 'my-toolbar',
-            template: "\n    <div id=\"bandeau-superieur\" class=\"row\">\n        <div class=\"col-md-4\">\n          <my-error-list [errors]=\"errors\"></my-error-list>\n        </div>\n        <my-search [errors]='errors'></my-search>\n        <button (click)=\"displayErrors()\">Afficher les erreurs de la page</button>\n        <div class=\"col-md-4\"> </div>\n    </div>\n  ",
+            template: "\n    <div id=\"bandeau-superieur\" class=\"row\">\n        <div class=\"col-md-4\">\n          <my-error-list [errors]=\"errors\"></my-error-list>\n        </div>\n        <my-search [errors]='errors'></my-search>\n        <div class=\"col-md-4\">\n          <button (click)=\"displayErrors()\">Afficher les erreurs de la page</button>\n        </div>\n    </div>\n  ",
             directives: [search_component_1.SearchComponent, error_list_component_1.ErrorListComponent],
             styles: ["\n    #bandeau-superieur{\n        background-color: lightgreen;\n        min-height: 15px;\n    }\n    div {\n      padding: 3px\n    }\n    "]
         }), 

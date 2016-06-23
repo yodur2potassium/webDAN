@@ -12,7 +12,8 @@ import { VideoComponent } from "../video/video.component";
   selector: 'my-article-detail',
   // Template d'article , appelle my-image et injecte l'image si présente
   template:`
-  <section [class.selected]="mainSelected"  (click)="displayErrors(article)">
+  <section [class.selected]="mainSelected" (click)="displayErrors(article)">
+    <p>Test de propagation ArticleDetail : {{errorsDisplayed}}</p>
       <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" [class.selected]="titleSelected"></div>
       <my-image [image]="article.images[0]"></my-image>
       <div innerHTML="{{article.content}}" [class.selected]="contentSelected"></div>
@@ -32,11 +33,12 @@ import { VideoComponent } from "../video/video.component";
 })
 
 export class ArticleDetailComponent {
-  @Input()
-  article: Article;
-  contentSelected = false;
-  titleSelected = false;
-  mainSelected = false;
+  @Input() article: Article;
+  @Input() errorsDisplayed: boolean = false;
+  contentSelected: boolean = false;
+  titleSelected: boolean = false;
+  mainSelected: boolean = false;
+
 
   public displayErrors(article: Article){
     // console.log(article);

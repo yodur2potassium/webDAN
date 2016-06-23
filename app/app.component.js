@@ -23,6 +23,7 @@ var AppComponent = (function () {
         this._errorService = _errorService;
         this._titleService = _titleService;
         this.currArticles = [];
+        this.errorsDisplayed = false;
     }
     // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
@@ -46,6 +47,7 @@ var AppComponent = (function () {
     };
     // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
     AppComponent.prototype.selectPage = function (page) {
+        this.errorsDisplayed = false;
         var tab = this.articles;
         var siteName = 'Le Groupe La Poste';
         console.log(page);
@@ -72,14 +74,16 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onDisplay = function ($event) {
         console.log($event);
+        this.errorsDisplayed = true;
+        console.log(this.errorsDisplayed);
     };
     AppComponent.prototype.testFunction = function () {
         // document.addEventListener('click',(e)=>{console.log(e.target)});
-        document.addEventListener('click', function (e) {
-            console.log(e.target.classList);
-            var target = e.target;
-            target.setAttribute('class', 'selected');
-        });
+        // document.addEventListener('click',(e)=>{
+        //   console.log(e.target.classList);
+        //   let target = e.target;
+        //   target.setAttribute('class', 'selected');
+        // });
     };
     AppComponent = __decorate([
         core_1.Component({

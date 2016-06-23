@@ -13,16 +13,18 @@ import { ArticleDetailComponent } from "./article-detail";
 
     // Template HTML effectuant l'affichage, parcours le tableau d'articles et injecte l'article dans my-article-detail
     template: `
-                <div *ngFor="let article of articles">
-                  <my-article-detail [article]="article"></my-article-detail>
-                </div>
+      <div *ngFor="let article of articles">
+        <p>Test de propagation ArticleList : {{errorsDisplayed}}</p>
+        <my-article-detail [article]="article" [errorsDisplayed]="errorsDisplayed"></my-article-detail>
+      </div>
     `,
     directives: [ArticleDetailComponent],
 
 })
 export class ArticleListComponent {
     // Attributs du Component avec type
-    @Input()
-    articles: Article[];
+    @Input() articles: Article[];
+    @Input() errorsDisplayed: boolean = false;
+
 
 }
