@@ -13,11 +13,12 @@ var search_component_1 = require("../search/search.component");
 var error_list_component_1 = require("../error/error-list.component");
 var ToolbarComponent = (function () {
     function ToolbarComponent() {
-        this.errorDisplayed = new core_1.EventEmitter();
-        this.errorsVisible = false;
+        this.emitShowError = new core_1.EventEmitter();
     }
     ToolbarComponent.prototype.displayErrors = function () {
-        this.errorDisplayed.emit('Plop');
+        this.emitShowError.emit('DISPLAY_ERRORS');
+    };
+    ToolbarComponent.prototype.onSelect = function ($event) {
     };
     __decorate([
         core_1.Input(), 
@@ -26,13 +27,13 @@ var ToolbarComponent = (function () {
     __decorate([
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
-    ], ToolbarComponent.prototype, "errorDisplayed", void 0);
+    ], ToolbarComponent.prototype, "emitShowError", void 0);
     ToolbarComponent = __decorate([
         core_1.Component({
             selector: 'my-toolbar',
-            template: "\n    <div id=\"bandeau-superieur\" class=\"row\">\n        <div class=\"col-md-4\">\n          <my-error-list [errors]=\"errors\"></my-error-list>\n        </div>\n        <my-search [errors]='errors'></my-search>\n        <div class=\"col-md-4\">\n          <button (click)=\"displayErrors()\">Afficher les erreurs de la page</button>\n        </div>\n    </div>\n  ",
+            template: "\n    <div id=\"toolbar\" class=\"input-group\" aria-label=\"...\">\n        <div class=\"input-group-btn\">\n          <my-error-list [errors]=\"errors\" (emitDetailError)=\"onSelect($event)\"></my-error-list>\n          <button class=\"btn btn-default\" (click)=\"displayErrors()\">Afficher les erreurs de la page</button>\n        </div>\n        <my-search [errors]='errors'></my-search>\n    </div>\n  ",
             directives: [search_component_1.SearchComponent, error_list_component_1.ErrorListComponent],
-            styles: ["\n    #bandeau-superieur{\n        background-color: lightgreen;\n        min-height: 15px;\n    }\n    div {\n      padding: 3px\n    }\n    "]
+            styles: ["\n    #toolbar{\n        background-color: lightgreen;\n        min-height: 15px;\n    }"]
         }), 
         __metadata('design:paramtypes', [])
     ], ToolbarComponent);

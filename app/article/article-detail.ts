@@ -1,5 +1,5 @@
 // Importe Component pour la déclaration et Input pour récuperer les donnée du parent
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
 
 import { Article } from "./article";
 import { ImageComponent } from "../image/image.component";
@@ -12,10 +12,10 @@ import { VideoComponent } from "../video/video.component";
   selector: 'my-article-detail',
   // Template d'article , appelle my-image et injecte l'image si présente
   template:`
-  <section [class.selected]="mainSelected" (click)="displayErrors(article)">
-    <p>Test de propagation ArticleDetail : {{errorsDisplayed}}</p>
+  <section [class.selected]="mainSelected">
+    <!--<p>Test de propagation ArticleDetail : {{broadcast}}</p>-->
       <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" [class.selected]="titleSelected"></div>
-      <my-image [image]="article.images[0]"></my-image>
+      <my-image [image]="article.images[0]" [broadcast]="broadcast"></my-image>
       <div innerHTML="{{article.content}}" [class.selected]="contentSelected"></div>
       <!--<my-video [video]="article.videos[0]"></my-video>-->
       <my-image [image]="article.images[1]"></my-image>
@@ -32,13 +32,23 @@ import { VideoComponent } from "../video/video.component";
     directives: [ImageComponent, VideoComponent]
 })
 
-export class ArticleDetailComponent {
+export class ArticleDetailComponent implements OnChanges {
   @Input() article: Article;
-  @Input() errorsDisplayed: boolean = false;
+  @Input() broadcast: string;
   contentSelected: boolean = false;
   titleSelected: boolean = false;
   mainSelected: boolean = false;
 
+  ngOnChanges (changes: {[broadcast: string]: SimpleChange}){
+    for (let propName in changes) {
+      let chng = changes[propName];
+      let cur  = chng.currentValue;
+      let prev = chng.previousValue;
+      if('DISPLAY_ERRORS' == cur){
+        this.displayErrors(this.article);
+      }
+    }
+  }
 
   public displayErrors(article: Article){
     // console.log(article);

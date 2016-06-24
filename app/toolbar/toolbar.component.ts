@@ -8,35 +8,31 @@ import { Error } from "../error/error";
 @Component ({
   selector: 'my-toolbar',
   template:`
-    <div id="bandeau-superieur" class="row">
-        <div class="col-md-4">
-          <my-error-list [errors]="errors"></my-error-list>
+    <div id="toolbar" class="input-group" aria-label="...">
+        <div class="input-group-btn">
+          <my-error-list [errors]="errors" (emitDetailError)="onSelect($event)"></my-error-list>
+          <button class="btn btn-default" (click)="displayErrors()">Afficher les erreurs de la page</button>
         </div>
         <my-search [errors]='errors'></my-search>
-        <div class="col-md-4">
-          <button (click)="displayErrors()">Afficher les erreurs de la page</button>
-        </div>
     </div>
   `,
   directives: [SearchComponent, ErrorListComponent],
   styles: [`
-    #bandeau-superieur{
+    #toolbar{
         background-color: lightgreen;
         min-height: 15px;
-    }
-    div {
-      padding: 3px
-    }
-    `]
+    }`]
 })
 
 export class ToolbarComponent{
   @Input() errors: Error[];
-  @Output() errorDisplayed: EventEmitter<any> = new EventEmitter();
-  errorsVisible: boolean = false;
+  @Output() emitShowError: EventEmitter<any> = new EventEmitter();
 
   public displayErrors(){
-    this.errorDisplayed.emit('Plop');
+    this.emitShowError.emit('DISPLAY_ERRORS');
+  }
+  public onSelect($event){
+    
   }
 
 

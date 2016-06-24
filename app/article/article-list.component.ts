@@ -14,8 +14,8 @@ import { ArticleDetailComponent } from "./article-detail";
     // Template HTML effectuant l'affichage, parcours le tableau d'articles et injecte l'article dans my-article-detail
     template: `
       <div *ngFor="let article of articles">
-        <p>Test de propagation ArticleList : {{errorsDisplayed}}</p>
-        <my-article-detail [article]="article" [errorsDisplayed]="errorsDisplayed"></my-article-detail>
+        <!--<p>Test de propagation ArticleList : {{broadcast}}</p>-->
+        <my-article-detail [article]="article" [broadcast]="broadcast"></my-article-detail>
       </div>
     `,
     directives: [ArticleDetailComponent],
@@ -24,7 +24,7 @@ import { ArticleDetailComponent } from "./article-detail";
 export class ArticleListComponent {
     // Attributs du Component avec type
     @Input() articles: Article[];
-    @Input() errorsDisplayed: boolean = false;
+    @Input() broadcast: string;
 
 
 }

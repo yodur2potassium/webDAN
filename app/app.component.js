@@ -12,9 +12,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require("@angular/platform-browser");
-var article_list_component_1 = require('./article/article-list.component');
 var article_service_1 = require('./article/article.service');
+var article_list_component_1 = require('./article/article-list.component');
 var error_service_1 = require("./error/error.service");
+var error_detail_component_1 = require("./error/error-detail.component");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
 var toolbar_component_1 = require("./toolbar/toolbar.component");
 var AppComponent = (function () {
@@ -23,7 +24,7 @@ var AppComponent = (function () {
         this._errorService = _errorService;
         this._titleService = _titleService;
         this.currArticles = [];
-        this.errorsDisplayed = false;
+        this.isShowDetail = false;
     }
     // Récupère l'intégralité des Articles via le service
     AppComponent.prototype.getArticles = function () {
@@ -47,7 +48,7 @@ var AppComponent = (function () {
     };
     // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
     AppComponent.prototype.selectPage = function (page) {
-        this.errorsDisplayed = false;
+        this.broadcast = "";
         var tab = this.articles;
         var siteName = 'Le Groupe La Poste';
         console.log(page);
@@ -73,9 +74,9 @@ var AppComponent = (function () {
         this._titleService.setTitle(newTitle);
     };
     AppComponent.prototype.onDisplay = function ($event) {
-        console.log($event);
-        this.errorsDisplayed = true;
-        console.log(this.errorsDisplayed);
+        this.broadcast = $event;
+        this.isShowDetail = !this.isShowDetail;
+        console.log("AppComponent: " + this.broadcast);
     };
     AppComponent.prototype.testFunction = function () {
         // document.addEventListener('click',(e)=>{console.log(e.target)});
@@ -94,7 +95,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent],
+            directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent, error_detail_component_1.ErrorDetailComponent],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 

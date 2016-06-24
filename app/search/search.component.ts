@@ -1,18 +1,18 @@
 import { Component, Input } from "@angular/core";
 import { Error } from "../error/error";
-import { CORE_DIRECTIVES } from "@angular/common";
-import { DROPDOWN_DIRECTIVES } from "ng2-bootstrap";
 
 @Component({
   selector: 'my-search',
   template: `
-    <input #box (keyup)="onKey(box.value)" placeholder="Entrez votre recherche...">
-        <span *ngIf='results'>
-          <ul [class.dropdown]="true">
-            <li *ngFor="let result of results" [class.dropdown-item]="true"><a>{{ result.title }}</a></li>
+    <div class="dropdown">
+      <input #box (keyup)="onKey(box.value)" placeholder="Entrez votre recherche..." class="form-control" aria-label="...">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <ul *ngIf='results'>
+              <li *ngFor="let result of results"><a>{{ result.title }}</a></li>
           </ul>
-        </span>
-  `,
+        </div>
+    </div>
+      `,
   // directives: [CORE_DIRECTIVES, DROPDOWN_DIRECTIVES]
 })
 export class SearchComponent {

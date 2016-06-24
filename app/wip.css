@@ -12,7 +12,8 @@ main{
 header{
 	background: url("../public/images/tetiere.png") no-repeat center 35px;
 	background-color: #fff;
-	position: relative;
+	/*position: relative;*/
+
 }
 
 

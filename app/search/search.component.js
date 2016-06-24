@@ -43,7 +43,7 @@ var SearchComponent = (function () {
     SearchComponent = __decorate([
         core_1.Component({
             selector: 'my-search',
-            template: "\n    <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\">\n        <span *ngIf='results'>\n          <ul [class.dropdown]=\"true\">\n            <li *ngFor=\"let result of results\" [class.dropdown-item]=\"true\"><a>{{ result.title }}</a></li>\n          </ul>\n        </span>\n  ",
+            template: "\n    <div class=\"dropdown\">\n      <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\" class=\"form-control\" aria-label=\"...\">\n        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n          <ul *ngIf='results'>\n              <li *ngFor=\"let result of results\"><a>{{ result.title }}</a></li>\n          </ul>\n        </div>\n    </div>\n      ",
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

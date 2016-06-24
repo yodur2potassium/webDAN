@@ -4,11 +4,14 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Title } from "@angular/platform-browser";
 
-import { ArticleListComponent } from './article/article-list.component';
-import { ArticleService } from './article/article.service';
 import { Article } from "./article/article";
-import { ErrorService } from "./error/error.service";
+import { ArticleService } from './article/article.service';
+import { ArticleListComponent } from './article/article-list.component';
+
 import { Error } from "./error/error";
+import { ErrorService } from "./error/error.service";
+import { ErrorDetailComponent } from "./error/error-detail.component";
+
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { FormComponent } from "./form/form.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
@@ -21,7 +24,7 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleListComponent, SidebarComponent, ToolbarComponent],
+  directives: [ArticleListComponent, SidebarComponent, ToolbarComponent, ErrorDetailComponent],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
@@ -31,7 +34,9 @@ export class AppComponent implements OnInit {
   articles: Article[];
   errors: Error[];
   currArticles: Article[]=[];
-  errorsDisplayed: boolean = false;
+  broadcast: string;
+  selectedError: Error;
+  isShowDetail:boolean = false;
   failed: any;
 
 
@@ -60,7 +65,7 @@ export class AppComponent implements OnInit {
   }
   // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
   public selectPage(page){
-    this.errorsDisplayed = false;
+    this.broadcast = "";
     let tab = this.articles;
     let siteName = 'Le Groupe La Poste';
     console.log(page);
@@ -85,9 +90,9 @@ export class AppComponent implements OnInit {
   }
 
   public onDisplay($event){
-    console.log($event);
-    this.errorsDisplayed = true;
-    console.log(this.errorsDisplayed);
+    this.broadcast = $event;
+    this.isShowDetail = !this.isShowDetail;
+    console.log("AppComponent: "+ this.broadcast);
   }
 
   public testFunction() {

@@ -14,7 +14,6 @@ var core_1 = require('@angular/core');
 var article_detail_1 = require("./article-detail");
 var ArticleListComponent = (function () {
     function ArticleListComponent() {
-        this.errorsDisplayed = false;
     }
     __decorate([
         core_1.Input(), 
@@ -22,14 +21,14 @@ var ArticleListComponent = (function () {
     ], ArticleListComponent.prototype, "articles", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], ArticleListComponent.prototype, "errorsDisplayed", void 0);
+        __metadata('design:type', String)
+    ], ArticleListComponent.prototype, "broadcast", void 0);
     ArticleListComponent = __decorate([
         core_1.Component({
             // Défini la balise HTML custom
             selector: 'my-article-list',
             // Template HTML effectuant l'affichage, parcours le tableau d'articles et injecte l'article dans my-article-detail
-            template: "\n      <div *ngFor=\"let article of articles\">\n        <p>Test de propagation ArticleList : {{errorsDisplayed}}</p>\n        <my-article-detail [article]=\"article\" [errorsDisplayed]=\"errorsDisplayed\"></my-article-detail>\n      </div>\n    ",
+            template: "\n      <div *ngFor=\"let article of articles\">\n        <!--<p>Test de propagation ArticleList : {{broadcast}}</p>-->\n        <my-article-detail [article]=\"article\" [broadcast]=\"broadcast\"></my-article-detail>\n      </div>\n    ",
             directives: [article_detail_1.ArticleDetailComponent],
         }), 
         __metadata('design:paramtypes', [])
