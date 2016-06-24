@@ -13,6 +13,7 @@ var core_1 = require("@angular/core");
 var article_1 = require("./article");
 var image_component_1 = require("../image/image.component");
 var video_component_1 = require("../video/video.component");
+var error_handler_directive_1 = require("../error/error-handler.directive");
 var ArticleDetailComponent = (function () {
     function ArticleDetailComponent() {
         this.contentSelected = false;
@@ -57,9 +58,9 @@ var ArticleDetailComponent = (function () {
         core_1.Component({
             selector: 'my-article-detail',
             // Template d'article , appelle my-image et injecte l'image si présente
-            template: "\n  <section [class.selected]=\"mainSelected\">\n    <!--<p>Test de propagation ArticleDetail : {{broadcast}}</p>-->\n      <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\" [class.selected]=\"titleSelected\"></div>\n      <my-image [image]=\"article.images[0]\" [broadcast]=\"broadcast\"></my-image>\n      <div innerHTML=\"{{article.content}}\" [class.selected]=\"contentSelected\"></div>\n      <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n      <my-image [image]=\"article.images[1]\"></my-image>\n  </section>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
+            template: "\n  <section [class.selected]=\"mainSelected\">\n    <!--<p>Test de propagation ArticleDetail : {{broadcast}}</p>-->\n      <div class=\"page-header\" innerHTML=\"{{article.title}} {{article.subtitle}}\" [class.selected]=\"titleSelected\"></div>\n      <my-image [image]=\"article.images[0]\" [broadcast]=\"broadcast\"></my-image>\n      <div innerHTML=\"{{article.content}}\" [class.selected]=\"contentSelected\"></div>\n      <!--<my-video [video]=\"article.videos[0]\"></my-video>-->\n      <my-image [image]=\"article.images[1]\"></my-image>\n  </section>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    .displayed{\n      border: 3px solid rgb(252,166,38);\n      box-shadow: 1px 1px 12px rgb(252,166,38);\n    }\n    "],
             // Déclare les directives utilisées par le composant
-            directives: [image_component_1.ImageComponent, video_component_1.VideoComponent]
+            directives: [image_component_1.ImageComponent, video_component_1.VideoComponent, error_handler_directive_1.ErrorHandlerDirective]
         }), 
         __metadata('design:paramtypes', [])
     ], ArticleDetailComponent);

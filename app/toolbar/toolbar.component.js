@@ -14,11 +14,14 @@ var error_list_component_1 = require("../error/error-list.component");
 var ToolbarComponent = (function () {
     function ToolbarComponent() {
         this.emitShowError = new core_1.EventEmitter();
+        this.emitDetailError = new core_1.EventEmitter();
     }
     ToolbarComponent.prototype.displayErrors = function () {
         this.emitShowError.emit('DISPLAY_ERRORS');
     };
     ToolbarComponent.prototype.onSelect = function ($event) {
+        var error = $event;
+        this.emitDetailError.emit(error);
     };
     __decorate([
         core_1.Input(), 
@@ -28,6 +31,10 @@ var ToolbarComponent = (function () {
         core_1.Output(), 
         __metadata('design:type', core_1.EventEmitter)
     ], ToolbarComponent.prototype, "emitShowError", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], ToolbarComponent.prototype, "emitDetailError", void 0);
     ToolbarComponent = __decorate([
         core_1.Component({
             selector: 'my-toolbar',

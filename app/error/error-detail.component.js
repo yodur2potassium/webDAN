@@ -28,7 +28,7 @@ var ErrorDetailComponent = (function () {
     ErrorDetailComponent = __decorate([
         core_1.Component({
             selector: 'my-error-detail',
-            template: "\n    <div id=\"erreurDetail\" *ngIf=\"error\" (click)=\"getLinkedTo()\">\n      <h4>{{ error.title }}</h4>\n      <strong>Correction :</strong>\n      <p>{{ error.description }}</p>\n      <ul>\n      <strong>Documentation :</strong>\n        <li *ngFor=\"let doc of error.documentations\">\n          <a href=\"{{doc.source}}\">Lien vers ressources externes en {{doc.lang}}</a>\n        </li>\n      </ul>\n    </div>\n  ",
+            template: "\n    <div class=\"panel panel-info\" *ngIf=\"error\" (click)=\"getLinkedTo()\">\n      <div class=\"panel-heading\">\n        <h3 class=\"panel-title\">D\u00E9tail de l'erreur</h3>\n      </div>\n      <div class=\"panel-body\">\n        <h4>Description :</h4>\n        <p>{{error.title}}</p>\n        <h4>Correction :</h4>\n        <p>{{ error.description }}</p>\n        <h4>Documentation :</h4>\n        <ul>\n          <li *ngFor=\"let doc of error.documentations\">\n            <a href=\"{{doc.source}}\">Lien vers ressources externes en {{doc.lang}}</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], ErrorDetailComponent);

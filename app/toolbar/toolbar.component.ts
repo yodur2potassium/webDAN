@@ -27,12 +27,15 @@ import { Error } from "../error/error";
 export class ToolbarComponent{
   @Input() errors: Error[];
   @Output() emitShowError: EventEmitter<any> = new EventEmitter();
+  @Output() emitDetailError: EventEmitter<any> = new EventEmitter();
+
 
   public displayErrors(){
     this.emitShowError.emit('DISPLAY_ERRORS');
   }
   public onSelect($event){
-    
+    let error = $event;
+    this.emitDetailError.emit(error);
   }
 
 

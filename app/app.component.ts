@@ -10,6 +10,7 @@ import { ArticleListComponent } from './article/article-list.component';
 
 import { Error } from "./error/error";
 import { ErrorService } from "./error/error.service";
+import { ErrorHandlerDirective } from "./error/error-handler.directive";
 import { ErrorDetailComponent } from "./error/error-detail.component";
 
 import { SidebarComponent } from "./sidebar/sidebar.component";
@@ -24,7 +25,7 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
   // Charge le page de style CSS générale
   styleUrls: ['app/wip.css'],
   // Déclare les directives
-  directives: [ArticleListComponent, SidebarComponent, ToolbarComponent, ErrorDetailComponent],
+  directives: [ArticleListComponent, SidebarComponent, ToolbarComponent, ErrorDetailComponent, ErrorHandlerDirective],
   // Déclare les providers de service de recupération de données API
   providers: [ArticleService, ErrorService],
 })
@@ -91,8 +92,17 @@ export class AppComponent implements OnInit {
 
   public onDisplay($event){
     this.broadcast = $event;
-    this.isShowDetail = !this.isShowDetail;
     console.log("AppComponent: "+ this.broadcast);
+  }
+
+  public onShowError($event){
+    this.isShowDetail = true;
+    this.selectedError = $event;
+  }
+
+  public closeErrorDetail(){
+    this.isShowDetail = false;
+    this.selectedError= null;
   }
 
   public testFunction() {

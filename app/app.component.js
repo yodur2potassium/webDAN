@@ -15,6 +15,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var article_service_1 = require('./article/article.service');
 var article_list_component_1 = require('./article/article-list.component');
 var error_service_1 = require("./error/error.service");
+var error_handler_directive_1 = require("./error/error-handler.directive");
 var error_detail_component_1 = require("./error/error-detail.component");
 var sidebar_component_1 = require("./sidebar/sidebar.component");
 var toolbar_component_1 = require("./toolbar/toolbar.component");
@@ -75,8 +76,15 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.onDisplay = function ($event) {
         this.broadcast = $event;
-        this.isShowDetail = !this.isShowDetail;
         console.log("AppComponent: " + this.broadcast);
+    };
+    AppComponent.prototype.onShowError = function ($event) {
+        this.isShowDetail = true;
+        this.selectedError = $event;
+    };
+    AppComponent.prototype.closeErrorDetail = function () {
+        this.isShowDetail = false;
+        this.selectedError = null;
     };
     AppComponent.prototype.testFunction = function () {
         // document.addEventListener('click',(e)=>{console.log(e.target)});
@@ -95,7 +103,7 @@ var AppComponent = (function () {
             // Charge le page de style CSS générale
             styleUrls: ['app/wip.css'],
             // Déclare les directives
-            directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent, error_detail_component_1.ErrorDetailComponent],
+            directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent, error_detail_component_1.ErrorDetailComponent, error_handler_directive_1.ErrorHandlerDirective],
             // Déclare les providers de service de recupération de données API
             providers: [article_service_1.ArticleService, error_service_1.ErrorService],
         }), 

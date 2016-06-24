@@ -6,16 +6,22 @@ import { Error } from "./error";
 @Component ({
   selector: 'my-error-detail',
   template: `
-    <div id="erreurDetail" *ngIf="error" (click)="getLinkedTo()">
-      <h4>{{ error.title }}</h4>
-      <strong>Correction :</strong>
-      <p>{{ error.description }}</p>
-      <ul>
-      <strong>Documentation :</strong>
-        <li *ngFor="let doc of error.documentations">
-          <a href="{{doc.source}}">Lien vers ressources externes en {{doc.lang}}</a>
-        </li>
-      </ul>
+    <div class="panel panel-info" *ngIf="error" (click)="getLinkedTo()">
+      <div class="panel-heading">
+        <h3 class="panel-title">Détail de l'erreur</h3>
+      </div>
+      <div class="panel-body">
+        <h4>Description :</h4>
+        <p>{{error.title}}</p>
+        <h4>Correction :</h4>
+        <p>{{ error.description }}</p>
+        <h4>Documentation :</h4>
+        <ul>
+          <li *ngFor="let doc of error.documentations">
+            <a href="{{doc.source}}">Lien vers ressources externes en {{doc.lang}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   `,
 })
@@ -24,6 +30,7 @@ export class ErrorDetailComponent {
   // Assigne l'erreur sélectionnée depuis le parent
   @Input()
   error: Error;
+
 
   // WIP, récupère la cible de l'erreur...
   getLinkedTo(){

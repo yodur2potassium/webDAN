@@ -3,6 +3,7 @@
 import { Component, Input, OnChanges, SimpleChange} from "@angular/core";
 
 import { Image } from "./image";
+import { ErrorHandlerDirective } from "../error/error-handler.directive";
 
 // Déclare la balise custom et le template
 @Component ({
@@ -10,7 +11,7 @@ import { Image } from "./image";
   template: `
     <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->
     <figure *ngIf="image" role="group" (click)=displayErrors(image)>
-      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} [class.selected]="isSelected">
+      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} [myErrorHandler]="isDisplayed">
       <figcaption class="text-center">{{image.caption}}</figcaption>
     </figure>
   `,styles: [`
@@ -21,13 +22,14 @@ import { Image } from "./image";
       box-shadow: 1px 1px 12px rgb(255, 0, 0);
     }
     `],
+    directives: [ErrorHandlerDirective]
   })
 
   export class ImageComponent implements OnChanges {
     // Assigne l'input du parent à l'attribut image
     @Input() image: Image;
     @Input() broadcast: string;
-    isSelected:boolean = false;
+    isDisplayed:boolean = false;
 
 
     ngOnChanges (changes: {[broadcast: string]: SimpleChange}){
@@ -43,7 +45,7 @@ import { Image } from "./image";
 
     public displayErrors(image){
       if (image && image.errors[0]){
-        this.isSelected = true;
+        this.isDisplayed = true;
         console.log('hasError');
       }
     }

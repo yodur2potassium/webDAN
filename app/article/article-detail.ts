@@ -2,11 +2,14 @@
 import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
 
 import { Article } from "./article";
+
 import { ImageComponent } from "../image/image.component";
 import { Image } from "../image/image";
+
 import { Video } from "../video/video";
 import { VideoComponent } from "../video/video.component";
 
+import { ErrorHandlerDirective } from "../error/error-handler.directive";
 
 @Component ({
   selector: 'my-article-detail',
@@ -27,9 +30,13 @@ import { VideoComponent } from "../video/video.component";
       color: rgb(0, 0, 0);
       box-shadow: 1px 1px 12px rgb(255, 0, 0);
     }
+    .displayed{
+      border: 3px solid rgb(252,166,38);
+      box-shadow: 1px 1px 12px rgb(252,166,38);
+    }
     `],
     // Déclare les directives utilisées par le composant
-    directives: [ImageComponent, VideoComponent]
+    directives: [ImageComponent, VideoComponent, ErrorHandlerDirective]
 })
 
 export class ArticleDetailComponent implements OnChanges {

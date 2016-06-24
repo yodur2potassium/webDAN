@@ -3,12 +3,13 @@ WORK IN PROGRESS
 Basée sur le kit static fourni -->
 <div class="row">
   <div class="col-md-12">
-    <my-toolbar [errors]="errors" (emitShowError)="onDisplay($event)"></my-toolbar>
+    <my-toolbar [errors]="errors" (emitShowError)="onDisplay($event)" (emitDetailError)="onShowError($event)"></my-toolbar>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-3" [style.display]="isShowDetail?block:hidden" id="contenuDoc">
-    <my-error-detail [error]=""></my-error-detail>
+  <div class="col-md-3" [style.display]="isShowDetail?'block':'none'" id="contenuDoc">
+    <button type="button" class="close" aria-label="Close" (click)="closeErrorDetail()"><span aria-hidden="true">&times;</span></button>
+    <my-error-detail [error]="selectedError"></my-error-detail>
   </div>
   <div class="class.col-md-12" [class.col-md-9]="isShowDetail" id="contenuSite">
 
@@ -59,7 +60,7 @@ Basée sur le kit static fourni -->
       </section>
     </div>
     <footer>
-      <div class="container conteneur barreMenu">
+      <div class="container conteneur barreMenu" myErrorHandler>
         WebDAN Angular2
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" class="liensMenu">Contact</a></li>
