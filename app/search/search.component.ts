@@ -8,8 +8,8 @@ import { Error } from "../error/error";
   selector: 'my-search',
   template: `
     <input #box (keyup)="onKey(box.value)" placeholder="Entrez votre recherche..." class="form-control" aria-label="...">
-    <div class="dropdown" [class.open]="isToggled">
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <div class="dropdown" [class.open]="isToggled"><br>
+      <div class="dropdown-menu dropdown-menu-down" aria-labelledby="dropdownMenu2">
         <ul *ngIf='results'>
           <li *ngFor="let result of results"><a>{{ result.title }}</a></li>
         </ul>

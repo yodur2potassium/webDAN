@@ -90,6 +90,7 @@ export class AppComponent implements OnInit {
     this._titleService.setTitle( newTitle )
   }
 
+  // Broacast l'event aux enfants a réception
   public onDisplay($event){
     this.broadcast = $event;
     console.log("AppComponent: "+ this.broadcast);
@@ -103,15 +104,6 @@ export class AppComponent implements OnInit {
   public closeErrorDetail(){
     this.isShowDetail = false;
     this.selectedError= null;
-  }
-
-  public testFunction() {
-    // document.addEventListener('click',(e)=>{console.log(e.target)});
-    // document.addEventListener('click',(e)=>{
-    //   console.log(e.target.classList);
-    //   let target = e.target;
-    //   target.setAttribute('class', 'selected');
-    // });
   }
 
 }

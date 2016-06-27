@@ -3,19 +3,22 @@ WORK IN PROGRESS
 Basée sur le kit static fourni -->
 <div class="row">
   <div class="col-md-12">
+    <!-- ToolbarComponent, recoit le tableau d'Erreurs de AppComponent, déclenche onDisplay() et onShowError()
+  grace au attributs emitShowError et emitDetailError -->
     <my-toolbar [errors]="errors" (emitShowError)="onDisplay($event)" (emitDetailError)="onShowError($event)"></my-toolbar>
   </div>
 </div>
 <div class="row">
+  <!-- Zone d'affichage du ErrorDetailComponent, modifie les grids CSS, modifié par l'attribut isShowDetail -->
   <div class="col-md-3" [style.display]="isShowDetail?'block':'none'" id="contenuDoc">
     <button type="button" class="close" aria-label="Close" (click)="closeErrorDetail()"><span aria-hidden="true">&times;</span></button>
+    <!-- ErrorDetailComponent, reçoit l'Erreur de AppComponent via selectedError -->
     <my-error-detail [error]="selectedError"></my-error-detail>
   </div>
+  <!-- Zone d'affichage du site, grid modifié par l'attribut isShowDetail -->
   <div class="class.col-md-12" [class.col-md-9]="isShowDetail" id="contenuSite">
 
     <header id="header">
-      <!-- Static navbar -->
-      <!-- Destiné a devenir un ToolsComponent -->
       <!-- Zone avec bannière et logo -->
       <div id="conteneurLogo">
         <div class="container conteneur">
@@ -23,9 +26,10 @@ Basée sur le kit static fourni -->
             <div id="conteneurLogoTexte" class="col-xs-7">
               <h1>
                 <span class="mainTitle" style="float:left">
+                  <!-- Lien de retour vers l'Accueil, assigne l'Article welcome -->
                   <a href="#" (click)="selectPage('Accueil')">LE GROUPE LA POSTE</a>
                 </span>
-                <span class="subTitle" style="float:left" data-error="true">EN 2016</span>
+                <span class="subTitle" style="float:left" myErrorHandler>EN 2016</span>
               </h1>
             </div>
             <img id="logo" alt="LE GROUPE LA POSTE" src="public/images/logo.png" class="pull-right">
@@ -33,28 +37,28 @@ Basée sur le kit static fourni -->
         </div>
       </div>
     </header>
-    <!-- Destiné a devenir un NavBarComponent -->
     <section>
       <div id="conteneurMenu">
         <nav class="container barreMenu conteneur">
           <ul class="nav navbar-nav">
+            <!-- Utilise le routeur "maison" pour assigner les Articles sur le clic de l'utilisateur -->
             <li class="active"><a href="#" class="liensMenu" (click)="selectPage('Résultats')">Résultats</a></li>
             <li><a href="#" class="liensMenu" (click)="selectPage('Dates clés')">Dates-clés</a></li>
             <li><a href="#" class="liensMenu" (click)="selectPage('COMEX')">Comex</a></li>
           </ul>
-        </nav><!-- /container -->
+        </nav>
       </div>
     </section>
     <!-- Section principale -->
     <div class="conteneurPrincipalMain">
       <section class="container conteneur" id="conteneurPrincipal">
         <div class="row">
-          <!-- Conteneur des articles, destiné a devenir ArticleListComponent -->
           <div class="col-sm-8" id="principal">
-            <!-- Balise custom, appele ArticleComponent, destiné a intégrer ArticleListComponent -->
+            <!-- ArticleListComponent, reçoit les articles courants depuis AppComponent via currArticles
+          et les messages via broadcast -->
             <my-article-list [articles]='currArticles' [broadcast]="broadcast"></my-article-list>
           </div>
-          <!-- Sidebar -->
+          <!-- SidebarComponent, affichage simple... -->
           <my-sidebar></my-sidebar>
         </div>
       </section>

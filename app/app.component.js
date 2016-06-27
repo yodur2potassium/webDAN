@@ -74,6 +74,7 @@ var AppComponent = (function () {
     AppComponent.prototype.setTitle = function (newTitle) {
         this._titleService.setTitle(newTitle);
     };
+    // Broacast l'event aux enfants a réception
     AppComponent.prototype.onDisplay = function ($event) {
         this.broadcast = $event;
         console.log("AppComponent: " + this.broadcast);
@@ -85,14 +86,6 @@ var AppComponent = (function () {
     AppComponent.prototype.closeErrorDetail = function () {
         this.isShowDetail = false;
         this.selectedError = null;
-    };
-    AppComponent.prototype.testFunction = function () {
-        // document.addEventListener('click',(e)=>{console.log(e.target)});
-        // document.addEventListener('click',(e)=>{
-        //   console.log(e.target.classList);
-        //   let target = e.target;
-        //   target.setAttribute('class', 'selected');
-        // });
     };
     AppComponent = __decorate([
         core_1.Component({
