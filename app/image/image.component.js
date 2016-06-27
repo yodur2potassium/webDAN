@@ -1,3 +1,4 @@
+// ImageComponent, affiche une image avec sa descritpion et un sous titre si présent
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8,8 +9,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// ImageComponent, affiche une image avec sa descritpion et un sous titre si présent
-// Importe Component pour la déclaration
+// Importe Component pour la déclaration, Input OnChanges et SimpleChange pour gerer les changements d'états
 var core_1 = require("@angular/core");
 var image_1 = require("./image");
 var error_handler_directive_1 = require("../error/error-handler.directive");
@@ -31,7 +31,6 @@ var ImageComponent = (function () {
     ImageComponent.prototype.displayErrors = function (image) {
         if (image && image.errors[0]) {
             this.isDisplayed = true;
-            console.log('hasError');
         }
     };
     __decorate([
@@ -45,7 +44,7 @@ var ImageComponent = (function () {
     ImageComponent = __decorate([
         core_1.Component({
             selector: 'my-image',
-            template: "\n    <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->\n    <figure *ngIf=\"image\" role=\"group\" (click)=displayErrors(image)>\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} [myErrorHandler]=\"isDisplayed\">\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
+            template: "\n    <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->\n    <figure *ngIf=\"image\" role=\"group\" (click)=displayErrors(image)>\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} myErrorHandler>\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
             directives: [error_handler_directive_1.ErrorHandlerDirective]
         }), 
         __metadata('design:paramtypes', [])

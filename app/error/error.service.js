@@ -28,6 +28,7 @@ var ErrorService = (function () {
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
+    // Récupére une Erreur via l'API grace à son ID, non utilisé pour le moment
     ErrorService.prototype.getError = function (id) {
         return this.getErrors()
             .then(function (errors) { return errors.filter(function (error) { return error.id === id; })[0]; });

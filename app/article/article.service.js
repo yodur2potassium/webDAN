@@ -1,4 +1,4 @@
-// ArticleService, assure la connexion avec l'API, temporaire
+// ArticleService, assure la connexion avec l'API
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -21,7 +21,7 @@ var ArticleService = (function () {
         // URL de l'API
         this.artUrl = "http://localhost:8000/api/articles";
     }
-    // Retourne une promesse de type Article en json
+    // Retourne une promesse de type tableau d'Article en json
     ArticleService.prototype.getArticles = function () {
         // return ARTICLES;
         return this.http.get(this.artUrl)

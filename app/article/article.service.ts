@@ -1,4 +1,4 @@
-// ArticleService, assure la connexion avec l'API, temporaire
+// ArticleService, assure la connexion avec l'API
 
 // Rends le Component injectable comme service
 import { Injectable } from '@angular/core';
@@ -16,7 +16,7 @@ export class ArticleService{
     private artUrl = "http://localhost:8000/api/articles";
 
     constructor(private http: Http) {}
-    // Retourne une promesse de type Article en json
+    // Retourne une promesse de type tableau d'Article en json
     getArticles(): Promise<Article[]>{
 
         // return ARTICLES;

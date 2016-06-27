@@ -1,3 +1,4 @@
+// SearchComponent, champ de recherche des Erreurs par titre
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8,14 +9,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Importe Component pour la déclaration et Input pour récuperer les données du parent
 var core_1 = require("@angular/core");
 var SearchComponent = (function () {
     function SearchComponent() {
         this.values = '';
+        this.isToggled = false;
     }
     // Fonction de recherche des erreurs, déclenchée par frappe clavier
     SearchComponent.prototype.onKey = function (value) {
         var _this = this;
+        this.isToggled = false;
         this.values = value;
         // Tableau de résultats ré-initialisé
         this.results = [];
@@ -29,11 +33,14 @@ var SearchComponent = (function () {
             var results = this.errors.map(function (error) {
                 return regexp_1.test(error.title) ? error : undefined;
             });
-            // Parcours le tableau de résultats et ajoute les erreurs trouvées a l'attribut results du component
+            // Parcours le tableau de résultats et ajoute les erreurs trouvées à l'attribut results du component
             results.forEach(function (el) {
                 el ? _this.results.push(el) : null;
             });
-            console.log(this.results);
+            // Vérifie l'existence d'une Erreur correspondant à la recherche et ouvre le dropdown
+            if (this.results[0]) {
+                this.isToggled = true;
+            }
         }
     };
     __decorate([
@@ -43,7 +50,7 @@ var SearchComponent = (function () {
     SearchComponent = __decorate([
         core_1.Component({
             selector: 'my-search',
-            template: "\n    <div class=\"dropdown\">\n      <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\" class=\"form-control\" aria-label=\"...\">\n        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n          <ul *ngIf='results'>\n              <li *ngFor=\"let result of results\"><a>{{ result.title }}</a></li>\n          </ul>\n        </div>\n    </div>\n      ",
+            template: "\n    <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\" class=\"form-control\" aria-label=\"...\">\n    <div class=\"dropdown\" [class.open]=\"isToggled\">\n      <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu2\">\n        <ul *ngIf='results'>\n          <li *ngFor=\"let result of results\"><a>{{ result.title }}</a></li>\n        </ul>\n      </div>\n    </div>\n      ",
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

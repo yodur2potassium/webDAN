@@ -1,4 +1,4 @@
-// ArticleComponent, affiche une liste article, modifications prevues
+// ArticleComponent, affiche une liste article, assigne l'article à ArticleDetailComponent
 
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
 import { Component, Input } from '@angular/core';
@@ -18,11 +18,12 @@ import { ArticleDetailComponent } from "./article-detail";
         <my-article-detail [article]="article" [broadcast]="broadcast"></my-article-detail>
       </div>
     `,
+    // Déclare la directive ArticleDetail
     directives: [ArticleDetailComponent],
 
 })
 export class ArticleListComponent {
-    // Attributs du Component avec type
+    // Attributs du Component avec type, reçoit un tableau d'article du parent et transmet le broadcast
     @Input() articles: Article[];
     @Input() broadcast: string;
 

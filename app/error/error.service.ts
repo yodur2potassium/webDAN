@@ -25,6 +25,7 @@ export class ErrorService{
                         .catch(this.handleError);
     }
 
+    // Récupére une Erreur via l'API grace à son ID, non utilisé pour le moment
     getError(id: number) {
         return this.getErrors()
                     .then(errors => errors.filter(error => error.id === id)[0]);

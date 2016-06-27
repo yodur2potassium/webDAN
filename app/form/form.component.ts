@@ -1,3 +1,5 @@
+// FormComponent, non encore utilisé...
+
 import { Component } from "@angular/core";
 
 @Component ({

@@ -1,4 +1,6 @@
+// Classe Image, déclare attributs et types
 "use strict";
+// Assigne les types au attributs
 var Image = (function () {
     function Image() {
     }

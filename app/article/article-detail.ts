@@ -1,6 +1,9 @@
-// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
-import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
+// ArticleDetailComponent, affiche le détail d'un article
 
+// Importe Component pour la déclaration, Input pour récuperer les donnée du parent
+// OnChanges et SimpleChange pour gérer les changements d'état des paramètres
+import { Component, Input, OnChanges, SimpleChange } from "@angular/core";
+// Importe les différents Composants et Classes nécessaires
 import { Article } from "./article";
 
 import { ImageComponent } from "../image/image.component";
@@ -8,7 +11,7 @@ import { Image } from "../image/image";
 
 import { Video } from "../video/video";
 import { VideoComponent } from "../video/video.component";
-
+// Importe la Directive gérant l'affichage des Erreurs
 import { ErrorHandlerDirective } from "../error/error-handler.directive";
 
 @Component ({
@@ -40,12 +43,15 @@ import { ErrorHandlerDirective } from "../error/error-handler.directive";
 })
 
 export class ArticleDetailComponent implements OnChanges {
+  // Les attributs précédés d'@Input reçoivent leurs données depuis le parent
   @Input() article: Article;
   @Input() broadcast: string;
   contentSelected: boolean = false;
   titleSelected: boolean = false;
   mainSelected: boolean = false;
 
+  // Surveille les changements d'état de l'attribut broadcast et declenche displayErrors
+  // si réception de 'DISPLAY_ERRORS'
   ngOnChanges (changes: {[broadcast: string]: SimpleChange}){
     for (let propName in changes) {
       let chng = changes[propName];
@@ -57,6 +63,8 @@ export class ArticleDetailComponent implements OnChanges {
     }
   }
 
+  // Méthode de verification de la présence d'Erreur associée a l'article, selectionne
+  // l'élément concerné et assigne le CSS
   public displayErrors(article: Article){
     // console.log(article);
     if(article.errors[0]){

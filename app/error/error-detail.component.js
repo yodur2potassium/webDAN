@@ -1,3 +1,4 @@
+// ErrorDetailComponent, affiche le détail d'une Erreur
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8,9 +9,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
+// Importe Component pour la déclaration et Input pour récuperer les données du parent
 var core_1 = require("@angular/core");
 var error_1 = require("./error");
+// Charge le template affichant le détail d'une Erreur et parcours et affiche le tableau de Documentation
 var ErrorDetailComponent = (function () {
     function ErrorDetailComponent() {
     }

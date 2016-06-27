@@ -1,3 +1,4 @@
+// ArticleDetailComponent, affiche le détail d'un article
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8,11 +9,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
+// Importe Component pour la déclaration, Input pour récuperer les donnée du parent
+// OnChanges et SimpleChange pour gérer les changements d'état des paramètres
 var core_1 = require("@angular/core");
+// Importe les différents Composants et Classes nécessaires
 var article_1 = require("./article");
 var image_component_1 = require("../image/image.component");
 var video_component_1 = require("../video/video.component");
+// Importe la Directive gérant l'affichage des Erreurs
 var error_handler_directive_1 = require("../error/error-handler.directive");
 var ArticleDetailComponent = (function () {
     function ArticleDetailComponent() {
@@ -20,6 +24,8 @@ var ArticleDetailComponent = (function () {
         this.titleSelected = false;
         this.mainSelected = false;
     }
+    // Surveille les changements d'état de l'attribut broadcast et declenche displayErrors
+    // si réception de 'DISPLAY_ERRORS'
     ArticleDetailComponent.prototype.ngOnChanges = function (changes) {
         for (var propName in changes) {
             var chng = changes[propName];
@@ -30,6 +36,8 @@ var ArticleDetailComponent = (function () {
             }
         }
     };
+    // Méthode de verification de la présence d'Erreur associée a l'article, selectionne
+    // l'élément concerné et assigne le CSS
     ArticleDetailComponent.prototype.displayErrors = function (article) {
         // console.log(article);
         if (article.errors[0]) {

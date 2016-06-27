@@ -1,5 +1,6 @@
 // ImageComponent, affiche une image avec sa descritpion et un sous titre si présent
-// Importe Component pour la déclaration
+
+// Importe Component pour la déclaration, Input OnChanges et SimpleChange pour gerer les changements d'états
 import { Component, Input, OnChanges, SimpleChange} from "@angular/core";
 
 import { Image } from "./image";
@@ -11,7 +12,7 @@ import { ErrorHandlerDirective } from "../error/error-handler.directive";
   template: `
     <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->
     <figure *ngIf="image" role="group" (click)=displayErrors(image)>
-      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} [myErrorHandler]="isDisplayed">
+      <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} myErrorHandler>
       <figcaption class="text-center">{{image.caption}}</figcaption>
     </figure>
   `,styles: [`
@@ -46,7 +47,6 @@ import { ErrorHandlerDirective } from "../error/error-handler.directive";
     public displayErrors(image){
       if (image && image.errors[0]){
         this.isDisplayed = true;
-        console.log('hasError');
       }
     }
 

@@ -1,13 +1,13 @@
-// ErrorListComponent, WORK IN PROGRESS
+// ErrorListComponent, affiche la liste des Erreurs
+
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
+// Importe Output et EventEmitter pour envoyer la donnée au parent
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-// Importe classe Error et le service pour recup données sur API
+// Importe classe Error
 import { Error } from "./error";
-import { ErrorService } from "./error.service";
 
 // Déclare la balise HTML custom et le template
-// Parcours le tableau d'erreurs, les affiche et les rends cliquable
-// Appelle le composant error-detail sur l'erreur selectionnée
+// Parcours le tableau d'erreurs, les affiche et les rends cliquables
 @Component({
     selector: 'my-error-list',
     template: `
@@ -25,12 +25,11 @@ import { ErrorService } from "./error.service";
       `]
 })
 export class ErrorListComponent {
+  // Reçoit le tableau d'Erreur depuis le parent
   @Input() errors: Error[];
+  // Renvoie l'Erreur sélectionnée au parent
   @Output() emitDetailError: EventEmitter<any> = new EventEmitter();
   selectedError: Error;
-  selErrorTarget: any;
-  failed: any;
-  isVisible = false;
 
   // Sélectionne une erreur
   onSelect(error: Error){

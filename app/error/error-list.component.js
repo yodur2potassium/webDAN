@@ -1,3 +1,4 @@
+// ErrorListComponent, affiche la liste des Erreurs
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8,16 +9,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// ErrorListComponent, WORK IN PROGRESS
 // Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
+// Importe Output et EventEmitter pour envoyer la donnée au parent
 var core_1 = require("@angular/core");
 // Déclare la balise HTML custom et le template
-// Parcours le tableau d'erreurs, les affiche et les rends cliquable
-// Appelle le composant error-detail sur l'erreur selectionnée
+// Parcours le tableau d'erreurs, les affiche et les rends cliquables
 var ErrorListComponent = (function () {
     function ErrorListComponent() {
+        // Renvoie l'Erreur sélectionnée au parent
         this.emitDetailError = new core_1.EventEmitter();
-        this.isVisible = false;
     }
     // Sélectionne une erreur
     ErrorListComponent.prototype.onSelect = function (error) {

@@ -1,8 +1,11 @@
-// Importe Component pour la déclaration et Input pour récuperer les donnée du parent
+// ErrorDetailComponent, affiche le détail d'une Erreur
+
+// Importe Component pour la déclaration et Input pour récuperer les données du parent
 import { Component, Input } from "@angular/core";
 
 import { Error } from "./error";
 
+// Charge le template affichant le détail d'une Erreur et parcours et affiche le tableau de Documentation
 @Component ({
   selector: 'my-error-detail',
   template: `
@@ -28,8 +31,7 @@ import { Error } from "./error";
 
 export class ErrorDetailComponent {
   // Assigne l'erreur sélectionnée depuis le parent
-  @Input()
-  error: Error;
+  @Input() error: Error;
 
 
   // WIP, récupère la cible de l'erreur...

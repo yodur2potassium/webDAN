@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Importe Input, OnChanges, SimpleChange pour surveiller et gérer les changemeents d'états
+// Importe Directive, ElementRef et HostListener pour assigner la directive à un élément du DOM
+// et surveiller le click de l'utilisateur
 var core_1 = require("@angular/core");
 var ErrorHandlerDirective = (function () {
     function ErrorHandlerDirective(el) {
@@ -18,6 +21,7 @@ var ErrorHandlerDirective = (function () {
         this.isDisplayed = 0;
         this.el = el.nativeElement;
     }
+    // Surveille les changements et assigne le style displayed
     ErrorHandlerDirective.prototype.ngOnChanges = function (changes) {
         for (var propName in changes) {
             var chng = changes[propName];
@@ -29,6 +33,7 @@ var ErrorHandlerDirective = (function () {
             }
         }
     };
+    // Surveille le clic de l'utilisateur sur l'élément du DOM associé et assigne le style selected
     ErrorHandlerDirective.prototype.onClick = function () {
         this.el.style.border = this._selectedBorder;
         this.el.style.boxShadow = this._selectedShadow;

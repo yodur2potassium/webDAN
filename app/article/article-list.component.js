@@ -1,4 +1,4 @@
-// ArticleComponent, affiche une liste article, modifications prevues
+// ArticleComponent, affiche une liste article, assigne l'article à ArticleDetailComponent
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -29,6 +29,7 @@ var ArticleListComponent = (function () {
             selector: 'my-article-list',
             // Template HTML effectuant l'affichage, parcours le tableau d'articles et injecte l'article dans my-article-detail
             template: "\n      <div *ngFor=\"let article of articles\">\n        <!--<p>Test de propagation ArticleList : {{broadcast}}</p>-->\n        <my-article-detail [article]=\"article\" [broadcast]=\"broadcast\"></my-article-detail>\n      </div>\n    ",
+            // Déclare la directive ArticleDetail
             directives: [article_detail_1.ArticleDetailComponent],
         }), 
         __metadata('design:paramtypes', [])
