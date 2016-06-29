@@ -13,7 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var image_1 = require("./image");
 var error_handler_directive_1 = require("../error/error-handler.directive");
-// Déclare la balise custom et le template
+// Déclare le composant
 var ImageComponent = (function () {
     function ImageComponent() {
         this.isDisplayed = false;
@@ -43,8 +43,12 @@ var ImageComponent = (function () {
     ], ImageComponent.prototype, "broadcast", void 0);
     ImageComponent = __decorate([
         core_1.Component({
+            // Déclare la balise HTML personalisée
             selector: 'my-image',
-            template: "\n    <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->\n    <figure *ngIf=\"image\" role=\"group\" (click)=displayErrors(image)>\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} myErrorHandler>\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ", styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
+            // Déclare le bloc d'affichage HMTL
+            template: "\n    <figure *ngIf=\"image\" role=\"group\" (click)=displayErrors(image)>\n      <img src={{image.source}} class=\"img-responsive center-block\" alt={{image.description}} myErrorHandler>\n      <figcaption class=\"text-center\">{{image.caption}}</figcaption>\n    </figure>\n  ",
+            styles: ["\n    .selected{\n      border: 3px solid rgb(255, 0, 0);\n      background-color: rgb(255, 255, 0);\n      color: rgb(0, 0, 0);\n      box-shadow: 1px 1px 12px rgb(255, 0, 0);\n    }\n    "],
+            // Déclare les directives
             directives: [error_handler_directive_1.ErrorHandlerDirective]
         }), 
         __metadata('design:paramtypes', [])

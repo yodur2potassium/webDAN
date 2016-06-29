@@ -31,8 +31,8 @@ export class ErrorService{
                     .then(errors => errors.filter(error => error.id === id)[0]);
   }
     // Renvoie une erreur si pb de connexion, à améliorer
-    private handleError(error: any) {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+    private handleError(failed: any) {
+    console.error('An error occurred', failed);
+    return Promise.reject(failed.message || failed);
   }
 }

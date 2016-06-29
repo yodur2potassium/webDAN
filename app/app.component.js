@@ -92,9 +92,9 @@ var AppComponent = (function () {
             // Definis la balise HTML custom
             selector: 'my-app',
             // Charge la template HMTL
-            templateUrl: 'app/wip.html',
+            templateUrl: 'app/app.html',
             // Charge le page de style CSS générale
-            styleUrls: ['app/wip.css'],
+            styleUrls: ['app/app.css'],
             // Déclare les directives
             directives: [article_list_component_1.ArticleListComponent, sidebar_component_1.SidebarComponent, toolbar_component_1.ToolbarComponent, error_detail_component_1.ErrorDetailComponent, error_handler_directive_1.ErrorHandlerDirective],
             // Déclare les providers de service de recupération de données API

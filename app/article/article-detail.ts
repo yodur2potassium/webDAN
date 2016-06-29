@@ -20,11 +20,11 @@ import { ErrorHandlerDirective } from "../error/error-handler.directive";
   template:`
   <section [class.selected]="mainSelected">
     <!--<p>Test de propagation ArticleDetail : {{broadcast}}</p>-->
-      <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" [class.selected]="titleSelected"></div>
+      <div class="page-header" innerHTML="{{article.title}} {{article.subtitle}}" [class.selected]="isTitleSelected"></div>
       <my-image [image]="article.images[0]" [broadcast]="broadcast"></my-image>
-      <div innerHTML="{{article.content}}" [class.selected]="contentSelected"></div>
+      <div innerHTML="{{article.content}}" [class.selected]="isContentSelected"></div>
       <!--<my-video [video]="article.videos[0]"></my-video>-->
-      <my-image [image]="article.images[1]"></my-image>
+      <my-image [image]="article.images[1]" [broadcast]="broadcast"></my-image>
   </section>
   `,styles: [`
     .selected{
@@ -46,9 +46,9 @@ export class ArticleDetailComponent implements OnChanges {
   // Les attributs précédés d'@Input reçoivent leurs données depuis le parent
   @Input() article: Article;
   @Input() broadcast: string;
-  contentSelected: boolean = false;
-  titleSelected: boolean = false;
-  mainSelected: boolean = false;
+  isContentSelected: boolean = false;
+  isTitleSelected: boolean = false;
+  isMainSelected: boolean = false;
 
   // Surveille les changements d'état de l'attribut broadcast et declenche displayErrors
   // si réception de 'DISPLAY_ERRORS'
@@ -72,11 +72,11 @@ export class ArticleDetailComponent implements OnChanges {
       let target = article.errors[0].target;
       switch (target){
         case "title" :
-        case "subtitle": this.titleSelected = true;
+        case "subtitle": this.isTitleSelected = true;
         break;
-        case "content" : this.contentSelected = true;
+        case "content" : this.isContentSelected = true;
         break;
-        // default: this.mainSelected= true;
+        // default: this.isMainSelected= true;
       }
     }
   }

@@ -1,4 +1,4 @@
-// ArticleComponent, affiche une liste article, assigne l'article à ArticleDetailComponent
+// ArticleListComponent, affiche une liste article, assigne l'article à ArticleDetailComponent
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -9,9 +9,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
+// Importe Component pour la déclaration et Input pour recevoir des données depuis le parent
 var core_1 = require('@angular/core');
 var article_detail_1 = require("./article-detail");
+// Declaration du composant
 var ArticleListComponent = (function () {
     function ArticleListComponent() {
     }
@@ -25,10 +26,10 @@ var ArticleListComponent = (function () {
     ], ArticleListComponent.prototype, "broadcast", void 0);
     ArticleListComponent = __decorate([
         core_1.Component({
-            // Défini la balise HTML custom
+            // Défini la balise HTML
             selector: 'my-article-list',
             // Template HTML effectuant l'affichage, parcours le tableau d'articles et injecte l'article dans my-article-detail
-            template: "\n      <div *ngFor=\"let article of articles\">\n        <!--<p>Test de propagation ArticleList : {{broadcast}}</p>-->\n        <my-article-detail [article]=\"article\" [broadcast]=\"broadcast\"></my-article-detail>\n      </div>\n    ",
+            template: "\n      <div *ngFor=\"let article of articles\">\n        <my-article-detail [article]=\"article\" [broadcast]=\"broadcast\"></my-article-detail>\n      </div>\n    ",
             // Déclare la directive ArticleDetail
             directives: [article_detail_1.ArticleDetailComponent],
         }), 

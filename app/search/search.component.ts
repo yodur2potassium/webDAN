@@ -16,10 +16,14 @@ import { Error } from "../error/error";
       </div>
     </div>
       `,
+      styles:[`
+            .dropdown-menu li{
+                padding: 0 5em 0;
+            }
+          `]
 })
 export class SearchComponent {
-  @Input()
-  errors: Error[];
+  @Input() errors: Error[];
   values='';
   results: Error[];
   isToggled:boolean = false;

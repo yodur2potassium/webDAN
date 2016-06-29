@@ -30,9 +30,9 @@ var ArticleService = (function () {
             .catch(this.handleError);
     };
     // Renvoie une erreur si pb de connexion, à améliorer
-    ArticleService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+    ArticleService.prototype.handleError = function (failed) {
+        console.error('An error occurred', failed);
+        return Promise.reject(failed.message || failed);
     };
     ArticleService = __decorate([
         core_1.Injectable(), 

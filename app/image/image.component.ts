@@ -6,16 +6,19 @@ import { Component, Input, OnChanges, SimpleChange} from "@angular/core";
 import { Image } from "./image";
 import { ErrorHandlerDirective } from "../error/error-handler.directive";
 
-// Déclare la balise custom et le template
+// Déclare le composant
 @Component ({
+  // Déclare la balise HTML personalisée
   selector: 'my-image',
+  // Déclare le bloc d'affichage HMTL
   template: `
-    <!--<p>Test de propagation ImageComponent : {{broadcast}}</p>-->
     <figure *ngIf="image" role="group" (click)=displayErrors(image)>
       <img src={{image.source}} class="img-responsive center-block" alt={{image.description}} myErrorHandler>
       <figcaption class="text-center">{{image.caption}}</figcaption>
     </figure>
-  `,styles: [`
+  `
+  // Déclare un style CSS propre au composant
+  ,styles: [`
     .selected{
       border: 3px solid rgb(255, 0, 0);
       background-color: rgb(255, 255, 0);
@@ -23,6 +26,7 @@ import { ErrorHandlerDirective } from "../error/error-handler.directive";
       box-shadow: 1px 1px 12px rgb(255, 0, 0);
     }
     `],
+    // Déclare les directives
     directives: [ErrorHandlerDirective]
   })
 

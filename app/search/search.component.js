@@ -51,6 +51,7 @@ var SearchComponent = (function () {
         core_1.Component({
             selector: 'my-search',
             template: "\n    <input #box (keyup)=\"onKey(box.value)\" placeholder=\"Entrez votre recherche...\" class=\"form-control\" aria-label=\"...\">\n    <div class=\"dropdown\" [class.open]=\"isToggled\"><br>\n      <div class=\"dropdown-menu dropdown-menu-down\" aria-labelledby=\"dropdownMenu2\">\n        <ul *ngIf='results'>\n          <li *ngFor=\"let result of results\"><a>{{ result.title }}</a></li>\n        </ul>\n      </div>\n    </div>\n      ",
+            styles: ["\n            .dropdown-menu li{\n                padding: 0 5em 0;\n            }\n          "]
         }), 
         __metadata('design:paramtypes', [])
     ], SearchComponent);

@@ -9,7 +9,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-// Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
+// Importe Component pour la déclaration du composant
 // Importe Output et EventEmitter pour envoyer la donnée au parent
 var core_1 = require("@angular/core");
 // Déclare la balise HTML custom et le template

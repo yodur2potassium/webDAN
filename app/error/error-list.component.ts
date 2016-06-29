@@ -1,6 +1,6 @@
 // ErrorListComponent, affiche la liste des Erreurs
 
-// Importe Component pour la déclaration et OnInit pour lancer le service et fetch les donnée au demarrage du Component
+// Importe Component pour la déclaration du composant
 // Importe Output et EventEmitter pour envoyer la donnée au parent
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 // Importe classe Error

@@ -21,9 +21,9 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
   // Definis la balise HTML custom
   selector: 'my-app',
   // Charge la template HMTL
-  templateUrl: 'app/wip.html',
+  templateUrl: 'app/app.html',
   // Charge le page de style CSS générale
-  styleUrls: ['app/wip.css'],
+  styleUrls: ['app/app.css'],
   // Déclare les directives
   directives: [ArticleListComponent, SidebarComponent, ToolbarComponent, ErrorDetailComponent, ErrorHandlerDirective],
   // Déclare les providers de service de recupération de données API
