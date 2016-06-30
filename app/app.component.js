@@ -39,15 +39,15 @@ var AppComponent = (function () {
         this._errorService.getErrors().then(function (response) { return _this.errors = response; })
             .catch(function (failed) { return _this.failed = failed; }); // This is a connexion error
     };
-    // Lifecycle hook, lance les fonctions a l'init du Component
+    // Lifecycle hook, lance les fonctions a l'initialisation du Component
     AppComponent.prototype.ngOnInit = function () {
         this.getArticles();
         this.getErrors();
         this.setTitle('Accueil - webDAN');
-        // this.testFunction();
         this.currArticles = welcome;
     };
     // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
+    // A ameliorer...
     AppComponent.prototype.selectPage = function (page) {
         this.broadcast = "";
         var tab = this.articles;

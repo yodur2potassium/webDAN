@@ -6,6 +6,9 @@ import { Component, Input } from "@angular/core";
 import { Error } from "./error";
 
 // Charge le template affichant le détail d'une Erreur et parcours et affiche le tableau de Documentation
+// (click)= assigne la methode sur le clic de l'utilisateur
+// *ngIf= verifie l'existence de l'attribut avant affichage du template
+// {{ error.title }} "bind" l'affichage sur l'attribut de l'instance
 @Component ({
   selector: 'my-error-detail',
   template: `
@@ -34,11 +37,11 @@ export class ErrorDetailComponent {
   @Input() error: Error;
 
 
-  // WIP, récupère la cible de l'erreur...
+  // Récupère et affiche dans la console la cible de l'erreur...
   getLinkedTo(){
     console.log(this.error);
     if(this.error.article){
-      console.log('plop');
+      console.log('Cette erreur est lié a :' + this.error.article.title);
     }
   }
 }

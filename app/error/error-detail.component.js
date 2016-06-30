@@ -13,14 +13,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var error_1 = require("./error");
 // Charge le template affichant le détail d'une Erreur et parcours et affiche le tableau de Documentation
+// (click)= assigne la methode sur le clic de l'utilisateur
+// *ngIf= verifie l'existence de l'attribut avant affichage du template
+// {{ error.title }} "bind" l'affichage sur l'attribut de l'instance
 var ErrorDetailComponent = (function () {
     function ErrorDetailComponent() {
     }
-    // WIP, récupère la cible de l'erreur...
+    // Récupère et affiche dans la console la cible de l'erreur...
     ErrorDetailComponent.prototype.getLinkedTo = function () {
         console.log(this.error);
         if (this.error.article) {
-            console.log('plop');
+            console.log('Cette erreur est lié a :' + this.error.article.title);
         }
     };
     __decorate([

@@ -56,15 +56,15 @@ export class AppComponent implements OnInit {
     this._errorService.getErrors().then(response => this.errors = response)
                                 .catch(failed => this.failed = failed) // This is a connexion error
   }
-  // Lifecycle hook, lance les fonctions a l'init du Component
+  // Lifecycle hook, lance les fonctions a l'initialisation du Component
   public ngOnInit(){
       this.getArticles();
       this.getErrors();
       this.setTitle('Accueil - webDAN');
-      // this.testFunction();
       this.currArticles = welcome;
   }
   // Routeur "maison", récupère le nom de la page, assigne le titre et assigne les articles a currArticles
+  // A ameliorer...
   public selectPage(page){
     this.broadcast = "";
     let tab = this.articles;
