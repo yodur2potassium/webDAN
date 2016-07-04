@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // et surveiller le click de l'utilisateur
 var core_1 = require("@angular/core");
 var ErrorHandlerDirective = (function () {
+    // Assigne l'élement HTML sur lequel est placé ErrorHandlerDirective
     function ErrorHandlerDirective(el) {
         this._selectedBorder = "3px solid rgb(255, 0, 0)";
         this._selectedShadow = "1px 1px 12px rgb(255, 0, 0)";

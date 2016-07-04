@@ -1,3 +1,6 @@
+// VideoComponent, non utilisée, problème d'insertion d'iframe a résoudre, fonctionne si la vidéo proviens d'une autre
+// source, ex youtube...
+
 import { Component, Input } from "@angular/core";
 
 import { Video } from "./video";
@@ -15,7 +18,9 @@ import { Video } from "./video";
   `,
 })
 
+
+
 export class VideoComponent {
-  @Input()
-  video: Video;
+  // Reçoit l'objet Video depuis le parent
+  @Input() video: Video;
 }

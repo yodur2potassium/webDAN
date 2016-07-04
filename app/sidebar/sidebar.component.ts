@@ -1,3 +1,5 @@
+// SidebarComponent, sert uniquement a l'afiichage de la sidebar pour le moment...
+
 import { Component, Input } from "@angular/core";
 
 import { Image } from "../image/image";

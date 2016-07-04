@@ -16,6 +16,7 @@ export class ErrorHandlerDirective implements OnChanges {
   private el: HTMLElement;
   @Input() isDisplayed: number = 0;
 
+  // Assigne l'élement HTML sur lequel est placé ErrorHandlerDirective
   constructor(el: ElementRef) { this.el = el.nativeElement; }
 
   // Surveille les changements et assigne le style displayed

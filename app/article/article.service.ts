@@ -14,13 +14,14 @@ import { Article } from './article';
 export class ArticleService{
     // URL de l'API
     private artUrl = "http://localhost:8000/api/articles";
+    private mockArticle = 'mock-articles.json';
 
     constructor(private http: Http) {}
     // Retourne une promesse de type tableau d'Article en json
-    getArticles(): Promise<Article[]>{
+    private _getArticles(source: string = this.artUrl): Promise<Article[]>{
 
         // return ARTICLES;
-        return this.http.get(this.artUrl)
+        return this.http.get(source)
                         .toPromise()
                         .then(response => response.json())
                         .catch(this.handleError);
@@ -29,5 +30,14 @@ export class ArticleService{
     private handleError(failed: any) {
     console.error('An error occurred', failed);
     return Promise.reject(failed.message || failed);
-  }
+    }
+
+    public loadArticles() {
+      return this._getArticles();
+    }
+
+    public loadMockArticles() {
+      return this._getArticles(this.mockArticle);
+    }
+
 }

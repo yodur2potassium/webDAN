@@ -20,11 +20,13 @@ var ArticleService = (function () {
         this.http = http;
         // URL de l'API
         this.artUrl = "http://localhost:8000/api/articles";
+        this.mockArticle = 'mock-articles.json';
     }
     // Retourne une promesse de type tableau d'Article en json
-    ArticleService.prototype.getArticles = function () {
+    ArticleService.prototype._getArticles = function (source) {
+        if (source === void 0) { source = this.artUrl; }
         // return ARTICLES;
-        return this.http.get(this.artUrl)
+        return this.http.get(source)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
@@ -33,6 +35,12 @@ var ArticleService = (function () {
     ArticleService.prototype.handleError = function (failed) {
         console.error('An error occurred', failed);
         return Promise.reject(failed.message || failed);
+    };
+    ArticleService.prototype.loadArticles = function () {
+        return this._getArticles();
+    };
+    ArticleService.prototype.loadMockArticles = function () {
+        return this._getArticles(this.mockArticle);
     };
     ArticleService = __decorate([
         core_1.Injectable(), 

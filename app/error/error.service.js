@@ -20,23 +20,31 @@ var ErrorService = (function () {
         this.http = http;
         // URL de l'API
         this.errorURL = "http://localhost:8000/api/errors";
+        this.mockErrors = 'mock-errors.json';
     }
     // Retourne une promesse de tableau de type Error en json
-    ErrorService.prototype.getErrors = function () {
-        return this.http.get(this.errorURL)
+    ErrorService.prototype._getErrors = function (source) {
+        if (source === void 0) { source = this.errorURL; }
+        return this.http.get(source)
             .toPromise()
             .then(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     // Récupére une Erreur via l'API grace à son ID
     ErrorService.prototype.getError = function (id) {
-        return this.getErrors()
+        return this._getErrors()
             .then(function (errors) { return errors.filter(function (error) { return error.id === id; })[0]; });
     };
     // Renvoie une erreur si pb de connexion, à améliorer
     ErrorService.prototype.handleError = function (failed) {
         console.error('An error occurred', failed);
         return Promise.reject(failed.message || failed);
+    };
+    ErrorService.prototype.loadErrors = function () {
+        return this._getErrors();
+    };
+    ErrorService.prototype.loadMockErrors = function () {
+        return this._getErrors(this.mockErrors);
     };
     ErrorService = __decorate([
         core_1.Injectable(), 

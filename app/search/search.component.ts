@@ -24,7 +24,7 @@ import { Error } from "../error/error";
 })
 export class SearchComponent {
   @Input() errors: Error[];
-  values='';
+  values: string ='';
   results: Error[];
   isToggled:boolean = false;
 
